@@ -7,7 +7,10 @@
 }
 
 :root {
-    --pink: #d84484;
+    --magenta: #E52F84;
+    --cyan: #18FEEA;
+    --yellow: #FFF550;
+    --green: #1FFC99;
 }
 
 * {
@@ -16,12 +19,17 @@
     box-sizing: border-box;
 }
 
+#promo {
+    display: flex;
+}
+
 .navbar {
     background-color: #000;
     color: #fff;
     padding: 20px 5vw;
     position: sticky;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     top: 0;
@@ -32,7 +40,7 @@
     position: absolute;
     width: 100%;
     height: 5px;
-    background-color: var(--pink);
+    background-color: var(--magenta);
     bottom: 0;
     left: 0;
 }
@@ -43,22 +51,37 @@
     text-decoration: none;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
+#links, #icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo h1 {
+#links > a:first-child {
+    margin: 0 20px 0 0;
+}
+
+#links > a:not(:first-child) {
+    margin: 0 20px 0 20px;
+}
+
+#icons > a {
+    margin: 0 5px 0 15px;
+}
+
+#nametag {
+    color: white;
+    font: 100 18px Futura;
+    text-decoration: none;
+    padding: 10px;
+}
+
+#name {
     font: italic 30px "Utonium";
-    -webkit-text-stroke: 2px var(--pink);
+    -webkit-text-stroke: 1px var(--magenta);
 }
 
-.logo h2 {
-    font: bold 20px Futura;
-    color: var(--pink);
-}
-
-#promo {
-    display: block;
+.shop {
+    height: 200vh;
 }

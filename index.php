@@ -7,8 +7,8 @@ if ($conn->connect_error) {
 
 $conn->query("CREATE DATABASE IF NOT EXISTS GlitchDB");
 $conn->query("CREATE TABLE IF NOT EXISTS GlitchDB.ORDER (
-  ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  USER varchar(30) NOT NULL,
+  ID INT(6) UNSIGNED AUTO_INCREMENT,
+  USER varchar(30) NOT NULL PRIMARY KEY,
   PROD_SERVICE varchar(255) NOT NULL,
   QUANTITY int
   )");
@@ -64,6 +64,12 @@ if (isset($_POST['delete'], $_POST['quantity'])) {
     <link rel="stylesheet" href="mycss.css" />
 </head>
 <body>
+  <div class="top">
+    <video id="promo" height="100%" width="100%" autoplay muted loop >
+      <source src="media/GlitchMode.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="body">
     <!-- navbar -->
     <div class="navbar">
         <a href="/">HOME</a>
@@ -163,5 +169,6 @@ if (isset($_POST['delete'], $_POST['quantity'])) {
             <input type="submit" name="delete" value="Delete">
         </form>
     </div>
+  </div>
 </body>
 </html>

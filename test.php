@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class = "shop">
-                <h1 id = "hero"> Get into the Glitch Mode. <h1/>
+                <h1 id = "hero"> Get into the Glitch Mode. </h1>
                 <div class = "subtypes">
                     <div class = "type" id = "solo">
                         <div class = "descrip">
@@ -83,6 +83,77 @@
                         <div class = "buytype">
                             <input type = "submit" name = "order" value = "Order">
                         </div>
+                    </div>
+                </div>
+                <div id = "feature">
+                    <div id = "fpic"></div>
+                    <div id = "fdescrip">
+                        <span> Featured Promo <span> Avail a  subscription and get free NCT DREAM merchandise. </span></span>
+                        <input type = "submit" name = "order" value = "Subscribe Now">
+                    </div>
+                </div>
+                <div class = "merches">
+                    <div class = "merch" id = "mark">
+                        <div id = "memname"> PLAYER MARK </div>
+                        <img id = "mempic" src = "media/mark.jpg" />
+                    </div>
+                    <div class = "merch" id = "renjun">
+                        <div id = "memname"> PLAYER RENJUN </div>
+                        <img id = "mempic" src = "media/renjun.jpg" />
+                    </div>
+                    <div class = "merch" id = "jeno">
+                        <div id = "memname"> PLAYER JENO </div>
+                        <img id = "mempic" src = "media/jeno.jpg" />
+                    </div>
+                    <div class = "merch" id = "haechan">
+                        <div id = "memname"> PLAYER HAECHAN </div>
+                        <img id = "mempic" src = "media/haechan.jpg" />
+                    </div>
+                    <div class = "merch" id = "chenle">
+                        <div id = "memname"> PLAYER CHENLE </div>
+                        <img id = "mempic" src = "media/chenle.jpg" />
+                    </div>
+                    <div class = "merch" id = "jaemin">
+                        <div id = "memname"> PLAYER JAEMIN </div>
+                        <img id = "mempic" src = "media/jaemin.jpg" />
+                    </div>
+                    <div class = "merch" id = "jisung">
+                        <div id = "memname"> PLAYER JISUNG </div>
+                        <img id = "mempic" src = "media/jisung.jpg" />
+                    </div>
+                </div>
+                <div class = "methods">
+                    <div id = "methodhead">
+                        Choose a billing method below:
+                    </div>
+                    <div class = "method">
+                        <span>
+                            <h1> Monthly </h1>
+                            <span> Description </span>
+                        </span>
+                        <input type = "submit" name = "order" value = "Select">
+                    </div>
+                    <div class = "method">
+                        <span>
+                            <h1> Yearly </h1>
+                            <span> Description </span>
+                        </span>
+                        <input type = "submit" name = "order" value = "Select">
+                    </div>
+                    <div class = "method">
+                        <span>
+                            <h1> One-time </h1>
+                            <span> Description </span>
+                        </span>
+                        <input type = "submit" name = "order" value = "Select">
+                    </div>
+                </div>
+                <div id = "enterp">
+                    <div id = "epic"></div>
+                    <div id = "edescrip">
+                        <span> Enterprise </span>
+                        <p> Building a gaming company? Let's co-op that! </p>
+                        <input type = "submit" name = "order" value = "Send E-mail">
                     </div>
                 </div>
             </div>

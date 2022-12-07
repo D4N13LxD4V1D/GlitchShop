@@ -58,3 +58,7 @@
     font: bold 20px Futura;
     color: var(--pink);
 }
+
+#promo {
+    display: block;
+}

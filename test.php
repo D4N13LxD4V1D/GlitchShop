@@ -31,8 +31,63 @@
                 </div>
             </div>
             <div class = "shop">
-                This is the shop.
+                <h1 id = "hero"> Get into the Glitch Mode. <h1/>
+                <div class = "subtypes">
+                    <div class = "type" id = "solo">
+                        <div class = "descrip">
+                            <h1> Solo </h1>
+                            <h2> For those who play single-player. </h2>
+                            <span class = "price"> Php 99.99 / month </span>
+                        </div>
+                        <div class = details>
+                            <ul>
+                                <li> Detail #1 </li>
+                                <li> Detail #1 </li>
+                                <li> Detail #1 </li>
+                            </ul>
+                        </div>
+                        <div class = "buytype">
+                            <input type = "submit" name = "order" value = "Order">
+                        </div>
+                    </div>
+                    <div class = "type" id = "duo">
+                        <div class = "descrip">
+                            <h1> Duo </h1>
+                            <h2> For the P1 and P2 with great synergy. </h2>
+                            <span class = "price"> Php 179.99 / month </span>
+                        </div>
+                        <div class = details>
+                            <ul>
+                                <li> Detail #1 </li>
+                                <li> Detail #1 </li>
+                                <li> Detail #1 </li>
+                            </ul>
+                        </div>
+                        <div class = "buytype">
+                            <input type = "submit" name = "order" value = "Order">
+                        </div>
+                    </div>
+                    <div class = "type" id = "squad">
+                        <div class = "descrip">
+                            <h1> Squad </h1>
+                            <h2> For the team that games together. </h2>
+                            <span class = "price"> Php 399.99 / month </span>
+                        </div>
+                        <div class = details>
+                            <ul>
+                                <li> Detail #1 </li>
+                                <li> Detail #1 </li>
+                                <li> Detail #1 </li>
+                            </ul>
+                        </div>
+                        <div class = "buytype">
+                            <input type = "submit" name = "order" value = "Order">
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div id = "empty">
         </div>
     </body>
 </html>

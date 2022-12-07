@@ -17,6 +17,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font: 400 16px Roboto;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 #promo {
@@ -49,6 +54,8 @@
     color: #fff;
     font: 100 18px Futura;
     text-decoration: none;
+
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🎮</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
 
 #links, #icons {
@@ -83,5 +90,93 @@
 }
 
 .shop {
-    height: 200vh;
+    width: 100vw;
+}
+
+#hero {
+    margin: 10vh;
+    text-align: center;
+    font: 800 72px VT323;
+    color: black;
+}
+
+.subtypes {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 80%;
+    column-gap: 5%;
+    margin: auto;
+}
+
+.descrip {
+    border: 1px solid gray;
+    border-radius: 20px 20px 0 0;
+    padding: 30px;
+    background-color: black;
+    color: white;
+}
+
+.details {
+    border: 1px solid gray;
+    padding: 30px;
+}
+
+.buytype {
+    border: 1px solid gray;
+    border-radius: 0 0 20px 20px;
+    padding: 30px;
+}
+
+input[type = submit] {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤑</text></svg>") 16 0,auto; /*!emojicursor.app*/
+  }
+
+li {
+    margin-bottom: 10px;
+    color: black;
+}
+
+h1 {
+    font: italic 50px "Utonium";
+    color: white;
+}
+
+#solo > div > h1 {
+    -webkit-text-stroke: 2px var(--magenta);
+    text-shadow: 0 0 10px var(--magenta);
+}
+
+#solo > div > input[type = submit] {
+    background-color: var(--magenta);
+}
+
+#duo > div > h1 {
+    -webkit-text-stroke: 2px var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+#duo > div > input[type = submit] {
+    background-color: var(--cyan);
+}
+
+#squad > div > h1 {
+    -webkit-text-stroke: 2px var(--green);
+    text-shadow: 0 0 10px var(--green);
+}
+
+#squad > div > input[type = submit] {
+    background-color: var(--green);
+}
+
+h2 {
+    font: 800 16px Roboto;
+}
+
+#empty {
+    height: 50vh;
 }

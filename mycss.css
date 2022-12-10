@@ -11,6 +11,7 @@
     --cyan: #18FEEA;
     --yellow: #FFF550;
     --green: #1FFC99;
+    --blue: #026DF9;
 }
 
 * {
@@ -308,7 +309,7 @@ h2 {
     margin: 10vh 25% 10vh 25%;
 }
 
-#methodhead {
+#methodhead, #itemhead {
     border: 1px solid gray;
     border-radius: 20px 20px 0 0;
     padding: 30px;
@@ -316,7 +317,7 @@ h2 {
     color: white;
 }
 
-.method {
+.method, .item {
     border: 1px solid gray;
     padding: 30px;
     display: flex;
@@ -339,47 +340,58 @@ h2 {
     color: white;
 }
 
-#enterp {
-    height: 100vh;
-    width: 100%;
-    margin: 10vh 0 10vh 0;
+.items {
+    width: 80%;
+    margin: 10vh 10% 10vh 10%;
 }
 
-#edescrip>input[type=submit] {
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    width: 10%;
-    margin: 30px;
-    background-color: black;
-    color: white;
-}
-
-#epic {
-    background-image: url("media/group.jpg");
-    background-size: cover;
-    background-position: top;
-    filter: brightness(50%);
-    height: 100%;
-    width: 100%;
-}
-
-#edescrip {
-    position: relative;
-    bottom: calc(60vh);
-    width: 100%;
-    text-align: center;
+.itemprev {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    color: white;
 }
 
-#edescrip>span {
-    color: white;
-    font: 800 72px VT323;
+.itemprev > img {
+    height: 100px;
+    margin-right: 20px;
+}
+
+.inc, .dec {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+}
+
+.dec {
+    background-color: var(--magenta);
+}
+
+.inc {
+    background-color: var(--green);
+}
+
+.qtycont>input[type=text] {
+    border: 1px solid gray;
+    height: 40px;
+    width: 60px;
+    padding: 10px;
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+}
+
+#methodfoot, #itemfoot {
+    border: 1px solid gray;
+    border-radius: 0 0 20px 20px;
+    padding: 10px;
+    background-color: var(--cyan);
 }
 
 #empty {

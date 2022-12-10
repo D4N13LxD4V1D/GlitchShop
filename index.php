@@ -228,12 +228,39 @@
                         </form>
                     </div>
                 </div>
+                <div class="methods">
+                    <div id="methodhead">
+                        Choose a billing method below:
+                    </div>
+                    <div class="method">
+                        <span>
+                            <h1> Monthly </h1>
+                            <span> Description </span>
+                        </span>
+                        <input type="submit" name="order" value="Select">
+                    </div>
+                    <div class="method">
+                        <span>
+                            <h1> Yearly </h1>
+                            <span> Description </span>
+                        </span>
+                        <input type="submit" name="order" value="Select">
+                    </div>
+                    <div class="method">
+                        <span>
+                            <h1> One-time </h1>
+                            <span> Description </span>
+                        </span>
+                        <input type="submit" name="order" value="Select">
+                    </div>
+                    <div id="methodfoot"> </div>
+                </div>
                 <div id="feature">
                     <div id="fpic"></div>
                     <div id="fdescrip">
-                        <span> Featured Promo <span> Avail a subscription and get free NCT DREAM merchandise.
+                        <span> Featured Artist <span> NCT DREAM Glitch Mode items available for purchase.
                             </span></span>
-                        <input type="submit" name="order" value="Subscribe Now">
+                        <input type="submit" name="order" value="Buy Now">
                     </div>
                 </div>
                 <div class="merches">
@@ -266,39 +293,137 @@
                         <img id="mempic" src="media/jisung.jpg" />
                     </div>
                 </div>
-                <div class="methods">
-                    <div id="methodhead">
-                        Choose a billing method below:
+                <div class="items">
+                    <div id="itemhead">
+                        Choose additional items to include in your package:
                     </div>
-                    <div class="method">
-                        <span>
-                            <h1> Monthly </h1>
-                            <span> Description </span>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/album-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Glitch Mode Album </h2>
+                                <span> Description </span>
+                            </span>
                         </span>
-                        <input type="submit" name="order" value="Select">
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
                     </div>
-                    <div class="method">
-                        <span>
-                            <h1> Yearly </h1>
-                            <span> Description </span>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/photobook-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Glitch Mode Photobook </h2>
+                                <span> Description </span>
+                            </span>
                         </span>
-                        <input type="submit" name="order" value="Select">
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
                     </div>
-                    <div class="method">
-                        <span>
-                            <h1> One-time </h1>
-                            <span> Description </span>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/album-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Glitch Mode Album </h2>
+                                <span> Description </span>
+                            </span>
                         </span>
-                        <input type="submit" name="order" value="Select">
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
                     </div>
-                </div>
-                <div id="enterp">
-                    <div id="epic"></div>
-                    <div id="edescrip">
-                        <span> Enterprise </span>
-                        <p> Building a gaming company? Let's co-op that! </p>
-                        <input type="submit" name="order" value="Send E-mail">
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/a4-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Glitch Mode A4 Poster </h2>
+                                <span> Description </span>
+                            </span>
+                        </span>
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
                     </div>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/film-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Film Photo v1 </h2>
+                                <span> Description </span>
+                            </span>
+                        </span>
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/film-2.jpg" />
+                            <span>
+                                <h2> NCT DREAM Film Photo v2 </h2>
+                                <span> Description </span>
+                            </span>
+                        </span>
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/poca-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Photocard </h2>
+                                <span> Description </span>
+                            </span>
+                        </span>
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/jacket-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM Jacket </h2>
+                                <span> Description </span>
+                            </span>
+                        </span>
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="itemprev">
+                            <img src="media/items/lace-1.jpg" />
+                            <span>
+                                <h2> NCT DREAM ID Lace </h2>
+                                <span> Description </span>
+                            </span>
+                        </span>
+                        <div class="qtycont">
+                            <input type="button" class="dec" value="-">
+                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="button" class="inc" value="+">
+                        </div>
+                    </div>
+                    <div id="itemfoot"></div>
                 </div>
             </div>
         </div>

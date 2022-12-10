@@ -80,6 +80,16 @@
     </head>
 
     <body>
+        <div id="login">
+            <img height="100px" src="media/GIitchMode.png" />
+            <span> ENTER YOUR PLAYER NAME  </span>
+            <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()"> <!-- Transfer CAPSLOCK to JS. -->
+            <input type="submit" name="login" value="LOG-IN">
+            <span id="creds">
+                All images used in this Machine Project all belong to SM Entertainment. <br />
+                No copyright infringement is intended.
+            </span>
+        </div>
         <div class="top">
             <video id="promo" height="100%" width="100%" autoplay muted loop>
                 <source src="media/GlitchMode.mp4" type="video/mp4">

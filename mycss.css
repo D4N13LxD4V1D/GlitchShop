@@ -12,6 +12,7 @@
     --yellow: #FFF550;
     --green: #1FFC99;
     --blue: #026DF9;
+    --neogreen: #F0F857;
 }
 
 * {
@@ -23,6 +24,53 @@
 
 html {
     overflow-x: hidden;
+}
+
+input:focus {
+    outline: none;
+    background: transparent;
+}
+
+#login {
+    height: 100vh;
+    background-color: var(--neogreen);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#login>* {
+    margin: 5px;
+}
+
+#login>span{
+    font: 800 32px VT323;
+}
+
+#login>input[type=text] {
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    background: none;
+    border: none;
+    border-bottom: 3px solid black;
+    font: 800 18px Futura;
+}
+
+#login>input[type=submit] {
+    background-color: black;
+    font: 800 16px Roboto;
+    color: white;
+    width: 10%;
+    margin-bottom: 50px;
+}
+
+#creds {
+    position: absolute;
+    bottom: 10px;
+    font: 800 12px Futura !important;
+    text-align: center;
 }
 
 #promo {

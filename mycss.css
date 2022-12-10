@@ -26,6 +26,7 @@ html {
 
 #promo {
     display: flex;
+    z-index: 99;
 }
 
 .navbar {
@@ -56,26 +57,51 @@ html {
     font: 100 18px Futura;
     text-decoration: none;
 
-    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🎮</text></svg>") 16 0,auto; /*!emojicursor.app*/
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🎮</text></svg>") 16 0, auto;
+    /*!emojicursor.app*/
 }
 
-#links, #icons {
+#links,
+#icons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-#links > a:first-child {
+#links>a:first-child {
     margin: 0 20px 0 0;
 }
 
-#links > a:not(:first-child) {
+#links>a:not(:first-child) {
     margin: 0 20px 0 20px;
 }
 
-#icons > a {
+#icons>a {
     margin: 0 5px 0 15px;
+}
+
+#cart {
+    position: relative;
+}
+
+#count {
+    /* circle background */
+    background: var(--magenta);
+    border-radius: 50%;
+    /* circle size */
+    width: 16px;
+    height: 16px;
+    /* circle position */
+    position: absolute;
+    bottom: 0px;
+    right: -8px;
+    /* circle text */
+    text-align: center;
+    line-height: 20px;
+    font: 100 12px Futura;
+    color: #fff;
+    text-decoration: none;
 }
 
 #nametag {
@@ -88,6 +114,37 @@ html {
 #name {
     font: italic 30px "Utonium";
     -webkit-text-stroke: 1px var(--magenta);
+}
+
+#slider-menu {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: fit-content;
+    padding: 30px;
+    max-height: 0;
+    background-color: rgba(0, 0, 0);
+    z-index: 1;
+    display: none;
+}
+
+#slider-menu::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: var(--magenta);
+    bottom: 0;
+    left: 0;
+}
+
+#icons:hover #slider-menu {
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: max-height 0.5s ease-in-out;
 }
 
 .shop {
@@ -128,14 +185,15 @@ html {
     padding: 30px;
 }
 
-input[type = submit] {
+input[type=submit] {
     border: none;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
     width: 100%;
-    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤑</text></svg>") 16 0,auto; /*!emojicursor.app*/
-  }
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤑</text></svg>") 16 0, auto;
+    /*!emojicursor.app*/
+}
 
 li {
     margin-bottom: 10px;
@@ -147,30 +205,30 @@ h1 {
     color: white;
 }
 
-#solo > div > h1 {
+#solo>div>h1 {
     -webkit-text-stroke: 2px var(--magenta);
     text-shadow: 0 0 10px var(--magenta);
 }
 
-#solo > div > input[type = submit] {
+#solo>form>input[type=submit] {
     background-color: var(--magenta);
 }
 
-#duo > div > h1 {
+#duo>div>h1 {
     -webkit-text-stroke: 2px var(--cyan);
     text-shadow: 0 0 10px var(--cyan);
 }
 
-#duo > div > input[type = submit] {
+#duo>form>input[type=submit] {
     background-color: var(--cyan);
 }
 
-#squad > div > h1 {
+#squad>div>h1 {
     -webkit-text-stroke: 2px var(--green);
     text-shadow: 0 0 10px var(--green);
 }
 
-#squad > div > input[type = submit] {
+#squad>form>input[type=submit] {
     background-color: var(--green);
 }
 
@@ -184,7 +242,7 @@ h2 {
     margin: 10vh 0 10vh 0;
 }
 
-#fdescrip > input[type = submit] {
+#fdescrip>input[type=submit] {
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -213,7 +271,7 @@ h2 {
     justify-content: space-between;
 }
 
-#fdescrip > span {
+#fdescrip>span {
     color: white;
     font: 800 72px VT323;
 }
@@ -266,12 +324,12 @@ h2 {
     justify-content: space-between;
 }
 
-.method > span > h1 {
+.method>span>h1 {
     font: 800 16px Roboto;
     color: black;
 }
 
-.method > input[type = submit] {
+.method>input[type=submit] {
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -287,7 +345,7 @@ h2 {
     margin: 10vh 0 10vh 0;
 }
 
-#edescrip > input[type = submit] {
+#edescrip>input[type=submit] {
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -319,7 +377,7 @@ h2 {
     color: white;
 }
 
-#edescrip > span {
+#edescrip>span {
     color: white;
     font: 800 72px VT323;
 }

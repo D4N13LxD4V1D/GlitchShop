@@ -101,7 +101,7 @@ input:focus {
     left: 0;
 }
 
-.navbar a {
+.navbar a, #links2>a {
     color: #fff;
     font: 100 18px Futura;
     text-decoration: none;
@@ -440,6 +440,33 @@ h2 {
     border-radius: 0 0 20px 20px;
     padding: 10px;
     background-color: var(--cyan);
+}
+
+#proceed {
+    background-color: var(--neogreen);
+    font: 800 16px Roboto;
+    color: black;
+    width: 30%;
+    margin: 0 35% 10vh 35%;
+}
+ 
+#footer {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-items: center;
+    padding: 7vh 0 7vh 0;
+}
+
+#links2, #shopinfo {
+    display: flex;
+    flex-direction: column;
+}
+
+#links2>* {
+    margin: 10px;
 }
 
 #empty {

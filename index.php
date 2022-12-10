@@ -436,7 +436,23 @@
                     <div id="itemfoot"></div>
                 </div>
             </div>
+            <input type="submit" id="proceed" name="order" value="Proceed to Checkout">
+        </div>
+        <div id="footer">
+            <img height="200px" src="media/GlitchMode-3.png" />
+            <div id="links2">
+                <h2> NAVIGATE </h2>
+                <hr />
+                <a href="checkout.php"> ABOUT </a>
+                <a href="checkout.php"> SERVICES </a>
+                <a href="checkout.php"> CONTACT INFORMATION </a>
+            </div>
+            <div id="shopinfo">
+                <h1> Glitch Mode </h1>
+                <h2> Game and Music Store </h2>
+                <span> Address: Gov. Pack Road, Baguio City, Benguet 2600 </span>
+                <span> Customer Service E-Mail: customerservice@glitchmode.com </span>
+            </div>
         </div>
     </body>
-
 </html>

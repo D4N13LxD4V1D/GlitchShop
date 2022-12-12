@@ -1,9 +1,61 @@
-@import url(//db.onlinewebfonts.com/c/6dbf0126ffd861046c0120a7bbf66356?family=Utonium);
+@font-face {
+    font-family: "Utonium";
+    src: url("font/utonium/Utonium.otf");
+}
 
 @font-face {
     font-family: "Utonium";
-    src: url("//db.onlinewebfonts.com/t/6dbf0126ffd861046c0120a7bbf66356.eot");
-    src: url("//db.onlinewebfonts.com/t/6dbf0126ffd861046c0120a7bbf66356.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/6dbf0126ffd861046c0120a7bbf66356.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/6dbf0126ffd861046c0120a7bbf66356.woff") format("woff"), url("//db.onlinewebfonts.com/t/6dbf0126ffd861046c0120a7bbf66356.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/6dbf0126ffd861046c0120a7bbf66356.svg#Utonium") format("svg");
+    src: url("font/utonium/Utonium\ Italic.otf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Utonium";
+    src: url("font/utonium/Utonium\ Bold.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Utonium";
+    src: url("font/utonium/Utonium\ Bold\ Italic.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("font/futura/futur.ttf");
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("font/futura/Futura\ Bold\ font.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("font/futura/Futura\ Bold\ Italic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("font/futura/Futura\ Light\ font.ttf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("font/futura/Futura\ Light\ Italic\ font.ttf");
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'VT323';
+    src: url('font/VT323/VT323-Regular.ttf');
 }
 
 :root {
@@ -44,13 +96,23 @@ input:focus {
     margin: 5px;
 }
 
-#login>span{
-    font: 800 32px VT323;
+#login>span {
+    font: 800 32px 'VT323';
 }
 
-#login>input[type=text] {
+#login>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100vw;
+}
+
+#login>form>input[type=text] {
     padding: 10px;
     width: 20%;
+    min-width: 200px;
     text-align: center;
     background: none;
     border: none;
@@ -58,9 +120,10 @@ input:focus {
     font: 800 18px Futura;
 }
 
-#login>input[type=submit] {
+#login>form>input[type=submit] {
     background-color: black;
     font: 800 16px Roboto;
+    min-width: 100px;
     color: white;
     width: 10%;
     margin-bottom: 50px;
@@ -101,7 +164,8 @@ input:focus {
     left: 0;
 }
 
-.navbar a, #links2>a {
+.navbar a,
+#links2>a {
     color: #fff;
     font: 100 18px Futura;
     text-decoration: none;
@@ -203,7 +267,7 @@ input:focus {
 #hero {
     margin: 10vh;
     text-align: center;
-    font: 800 72px VT323;
+    font: 800 72px 'VT323';
     color: black;
 }
 
@@ -322,7 +386,7 @@ h2 {
 
 #fdescrip>span {
     color: white;
-    font: 800 72px VT323;
+    font: 800 72px 'VT323';
 }
 
 .merches {
@@ -357,7 +421,8 @@ h2 {
     margin: 10vh 25% 10vh 25%;
 }
 
-#methodhead, #itemhead {
+#methodhead,
+#itemhead {
     border: 1px solid gray;
     border-radius: 20px 20px 0 0;
     padding: 30px;
@@ -365,7 +430,8 @@ h2 {
     color: white;
 }
 
-.method, .item {
+.method,
+.item {
     border: 1px solid gray;
     padding: 30px;
     display: flex;
@@ -399,12 +465,13 @@ h2 {
     align-items: center;
 }
 
-.itemprev > img {
+.itemprev>img {
     height: 100px;
     margin-right: 20px;
 }
 
-.inc, .dec {
+.inc,
+.dec {
     border: 1px solid gray;
     border-radius: 5px;
     height: 40px;
@@ -435,7 +502,8 @@ h2 {
     text-align: center;
 }
 
-#methodfoot, #itemfoot {
+#methodfoot,
+#itemfoot {
     border: 1px solid gray;
     border-radius: 0 0 20px 20px;
     padding: 10px;
@@ -449,7 +517,7 @@ h2 {
     width: 30%;
     margin: 0 35% 10vh 35%;
 }
- 
+
 #footer {
     display: grid;
     grid-template-columns: 40% 20% 40%;
@@ -460,7 +528,8 @@ h2 {
     padding: 7vh 0 7vh 0;
 }
 
-#links2, #shopinfo {
+#links2,
+#shopinfo {
     display: flex;
     flex-direction: column;
 }

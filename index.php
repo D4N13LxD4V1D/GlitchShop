@@ -15,52 +15,95 @@
 
     if (isset($_POST['login'])) {
         setcookie("user", $_POST['user'], time() + 3600);
-        header("Location: /");
+        header("Refresh:0");
     }
 
     if (isset($_POST['logout'])) {
         setcookie("user", "", time() - 3600);
         unset($_COOKIE['user']);
-        header("Location: /");
+        header("Refresh:0");
     }
 
-    if (isset($_POST['order'])) {
-        if (isset($_COOKIE['user'])) {
-            $user = $_COOKIE['user'];
-            $prod_service = $_POST['prod_service'];
-            $quantity = $_POST['quantity'];
-
-            // check if user already has an order of Solo, Duo, or Squad
-            if ($prod_service == "Solo" || $prod_service == "Duo" || $prod_service == "Squad") {
-                try {
-                    $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = 'Solo' OR PROD_SERVICE = 'Duo' OR PROD_SERVICE = 'Squad'");
-                    if ($result->num_rows > 0) {
-                        // if user already has an order of Solo, Duo, or Squad, remove the old order and add the new order
-                        $current_order = $result->fetch_assoc()['PROD_SERVICE'];
-                        $conn->query("DELETE FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$current_order'");
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['order'])) {
+            if (isset($_COOKIE['user'])) {
+                $user = $_COOKIE['user'];
+                $prod_service = $_POST['prod_service'];
+                $quantity = $_POST['quantity'];
+    
+                // check if user already has an order of Solo, Duo, or Squad
+                if ($prod_service == "Solo" || $prod_service == "Duo" || $prod_service == "Squad") {
+                    try {
+                        $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = 'Solo' OR PROD_SERVICE = 'Duo' OR PROD_SERVICE = 'Squad'");
+                        if ($result->num_rows > 0) {
+                            // if user already has an order of Solo, Duo, or Squad, remove the old order
+                            $current_order = $result->fetch_assoc()['PROD_SERVICE'];
+                            $conn->query("DELETE FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$current_order'");
+                        }
+                    } catch (Exception $e) {}
+                }
+    
+                // add new order
+                $conn->query("INSERT INTO GlitchDB.ORDER (USER, PROD_SERVICE, QUANTITY) VALUES ('$user', '$prod_service', '$quantity')");
+    
+                if (isset($_REQUEST['POST'])) {
+                    $user = $_COOKIE['user'];
+                    try {
+                        $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
+                        if ($result->num_rows == 0) {
+                            throw new Exception("No orders");
+                        }
+                        echo '<h2>My Orders</h2>
+                            <table>
+                                <tr>
+                                    <th>Product/Service</th>
+                                    <th>Quantity</th>
+                                    <th>Edit</th>
+                                </tr>';
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
+                            echo '<form action="index.php" method="post">
+                                    <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
+                                    <input type="number" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
+                                    <input type="submit" name="delete" value="Remove">
+                                </form>';
+                            echo "</td></tr>";
+                        }
+                        echo '</table>';
+                        // checkout button
+                        echo '<form action="checkout.php" method="post">
+                            <input type="submit" name="checkout" value="Checkout">
+                        </form>';
+                    } catch (Exception $e) {
+                        echo "You have no orders.";
                     }
-                } catch (Exception $e) {}
+                }
+            } else {
+                header("Refresh:0");
             }
-
-            $conn->query("INSERT INTO GlitchDB.ORDER (USER, PROD_SERVICE, QUANTITY) VALUES ('$user', '$prod_service', '$quantity')");
-            header("Location: /");
-        } else {
-            echo "You must be logged in to order.";
-            header("Location: /");
         }
-    }
-
-    if (isset($_POST['delete'], $_POST['quantity'])) {
-        $user = $_COOKIE['user'];
-        $prod_service = $_POST['prod_service'];
-        $quantity = $_POST['quantity'];
-        $current_quantity = $conn->query("SELECT QUANTITY FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$prod_service'")->fetch_assoc()['QUANTITY'];
-        if ($current_quantity - $quantity > 0) {
-            $conn->query("UPDATE GlitchDB.ORDER SET QUANTITY = QUANTITY - '$quantity' WHERE USER = '$user' AND PROD_SERVICE = '$prod_service'");
-        } else {
-            $conn->query("DELETE FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$prod_service' AND QUANTITY = '$current_quantity'");
+    
+        if (isset($_POST['delete'], $_POST['quantity'])) {
+            if (isset($_COOKIE['user'])) {
+                $user = $_COOKIE['user'];
+                $prod_service = $_POST['prod_service'];
+                $quantity = $_POST['quantity'];
+                $current_quantity = $conn->query("SELECT QUANTITY FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$prod_service'")->fetch_assoc()['QUANTITY'];
+                if ($current_quantity - $quantity > 0) {
+                    $conn->query("UPDATE GlitchDB.ORDER SET QUANTITY = QUANTITY - '$quantity' WHERE USER = '$user' AND PROD_SERVICE = '$prod_service'");
+                } else {
+                    $conn->query("DELETE FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$prod_service' AND QUANTITY = '$current_quantity'");
+                }
+            } else {
+                header("Refresh:0");
+            }
         }
-        header("Location: /");
+    
+        if (isset($_POST['count'])) {
+            $user = $_COOKIE['user'];
+            $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
+            echo $result->num_rows;
+        }
     }
 ?>
 
@@ -76,15 +119,19 @@
         <script src="myjs.js"></script>
         <link href="//db.onlinewebfonts.com/c/6dbf0126ffd861046c0120a7bbf66356?family=Utonium" rel="stylesheet"
             type="text/css" />
+        <link href="https://fonts.cdnfonts.com/css/vt323" rel="stylesheet">
+
         <link rel="stylesheet" href="mycss.css" />
     </head>
 
     <body>
         <div id="login">
             <img height="100px" src="media/GIitchMode.png" />
-            <span> ENTER YOUR PLAYER NAME  </span>
-            <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()"> <!-- Transfer CAPSLOCK to JS. -->
-            <input type="submit" name="login" value="LOG-IN">
+            <span> ENTER YOUR PLAYER NAME </span>
+            <form method="POST" action="/">
+                <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()">
+                <input type="submit" name="login" value="LOG-IN">
+            </form>
             <span id="creds">
                 All images used in this Machine Project all belong to SM Entertainment. <br />
                 No copyright infringement is intended.
@@ -125,55 +172,43 @@
                         }
                     ?>
                     <div id="slider-menu">
-                        <?php
-                            if (isset($_COOKIE['user'])) {
-                                echo '<form action="index.php" method="post">
-                                    <input type="submit" name="logout" value="Logout">
-                                    </form>';
-                                echo '<div id="myorders">';
-                                if (isset($_COOKIE['user'])) {
-                                    $user = $_COOKIE['user'];
-                                    try {
-                                        $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
-                                        if ($result->num_rows == 0) {
-                                            throw new Exception("No orders");
-                                        }
-                                        echo '<h2>My Orders</h2>
-                                            <table>
-                                                <tr>
-                                                    <th>Product/Service</th>
-                                                    <th>Quantity</th>
-                                                    <th>Edit</th>
-                                                </tr>';
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
-                                            echo '<form action="index.php" method="post">
-                                                    <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
-                                                    <input type="number" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
-                                                    <input type="submit" name="delete" value="Remove">
-                                                </form>';
-                                            echo "</td></tr>";
-                                        }
-                                        echo '</table>
-                                            </div>';
-                                        // checkout button
-                                        echo '<form action="checkout.php" method="post">
-                                            <input type="submit" name="checkout" value="Checkout">
-                                        </form>';
-                                    } catch (Exception $e) {
-                                        echo "You have no orders.</div>";
-                                    }
-                                } else {
-                                    echo "You must be logged in to view your orders.</div>";
+                        <form action="index.php" method="post">
+                            <input type="submit" name="logout" value="Logout">
+                        </form>
+                        <div id="orders">
+                            <?php
+                            $user = $_COOKIE['user'];
+                            try {
+                                $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
+                                if ($result->num_rows == 0) {
+                                    throw new Exception("No orders");
                                 }
-                            } else {
-                                echo '<form action="index.php" method="post">
-                                    <input type="text" name="user" placeholder="Username">
-                                    <input type="password" name="pass" placeholder="Password">
-                                    <input type="submit" name="login" value="Login">
+                                echo '<h2>My Orders</h2>
+                                    <table>
+                                        <tr>
+                                            <th>Product/Service</th>
+                                            <th>Quantity</th>
+                                            <th>Edit</th>
+                                        </tr>';
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
+                                    echo '<form action="index.php" method="post">
+                                            <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
+                                            <input type="number" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
+                                            <input type="submit" name="delete" value="Remove">
+                                        </form>';
+                                    echo "</td></tr>";
+                                }
+                                echo '</table>';
+                                // checkout button
+                                echo '<form action="checkout.php" method="post">
+                                    <input type="submit" name="checkout" value="Checkout">
                                 </form>';
+                            } catch (Exception $e) {
+                                echo "You have no orders.";
                             }
-                        ?>
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,7 +231,7 @@
                         <form class="buytype" action="index.php" method="post">
                             <input type="hidden" name="prod_service" value="Solo">
                             <input type="hidden" name="quantity" value="1">
-                            <input type="submit" name="order" value="Order">
+                            <input type="button" name="order" value="Order">
                         </form>
                     </div>
                     <div class="type" id="duo">
@@ -317,7 +352,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -331,7 +366,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -345,7 +380,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -359,7 +394,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -373,7 +408,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -387,7 +422,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -401,7 +436,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -415,7 +450,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -429,7 +464,7 @@
                         </span>
                         <div class="qtycont">
                             <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="1">
+                            <input type="text" name="quantity" min="1" max="9" value="0">
                             <input type="button" class="inc" value="+">
                         </div>
                     </div>
@@ -455,4 +490,5 @@
             </div>
         </div>
     </body>
+
 </html>

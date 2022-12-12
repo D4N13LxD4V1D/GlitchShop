@@ -19,33 +19,33 @@ window.onload = function () {
 
     // get all form submit buttons
     var forms = document.getElementsByTagName('form');
-    console.log(forms);
     for (var i = 0; i < forms.length; i++) {
-        console.log(forms[i].class);
         forms[i].onsubmit = function (e) {
             var form = e.target;
-            if (form.class == 'buytype') {
+            if (form.className == 'buytype') {
                 e.preventDefault();
                 placeOrder(form);
+                updateCount();
             }
         }
     }
+
+    updateCount();
 }
 
 function placeOrder(form) {
     var orders = document.getElementById('orders');
-    console.log("HII");
     var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
+    xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log("got response");
             orders.innerHTML = xhr.responseText;
+            alert('Your have order "' + formData.get('prod_service') + '".');
         }
     }
-    var url = 'index.php?user="' + document.cookie.split('=')[1].split(';')[0] + '"&prod_service="' + form.prod_service.value + '"&quantity=' + form.quantity.value + '&order=1';
-    console.log(url);
-    xhr.open('POST', url, true);
-    xhr.send();
+    var formData = new FormData(form);
+    formData.append('order', 'placeOrder');
+    xhr.open('POST', 'index.php', true);
+    xhr.send(formData);
 }
 
 function updateCount() {
@@ -53,9 +53,16 @@ function updateCount() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            count.innerHTML = xhr.responseText;
+            if (xhr.responseText == 0) {
+                count.style.visibility = 'hidden';
+            } else {
+                count.style.visibility = 'visible';
+                count.innerHTML = xhr.responseText;
+            }
         }
     }
-    xhr.open('POST', 'index.php?', true);
-    xhr.send();
+    xhr.open('POST', 'index.php', true);
+    var formData = new FormData();
+    formData.append('count', 'true');
+    xhr.send(formData);
 }

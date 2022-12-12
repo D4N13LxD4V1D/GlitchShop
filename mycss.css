@@ -298,7 +298,8 @@ input:focus {
     padding: 30px;
 }
 
-input[type=button], input[type=submit] {
+input[type=button],
+input[type=submit] {
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -322,7 +323,7 @@ h1 {
     text-shadow: 0 0 10px var(--magenta);
 }
 
-#solo>form>input[type=button] {
+#solo>form>input[type=submit] {
     width: 100%;
     background-color: var(--magenta);
 }
@@ -332,7 +333,7 @@ h1 {
     text-shadow: 0 0 10px var(--cyan);
 }
 
-#duo>form>input[type=button] {
+#duo>form>input[type=submit] {
     width: 100%;
     background-color: var(--cyan);
 }
@@ -342,7 +343,7 @@ h1 {
     text-shadow: 0 0 10px var(--green);
 }
 
-#squad>form>input[type=button] {
+#squad>form>input[type=submit] {
     width: 100%;
     background-color: var(--green);
 }

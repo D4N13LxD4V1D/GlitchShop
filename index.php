@@ -121,7 +121,7 @@
             type="text/css" />
         <link href="https://fonts.cdnfonts.com/css/vt323" rel="stylesheet">
 
-        <link rel="stylesheet" href="mycss.css" />
+        <link rel="stylesheet" href="mycss.css?v=<?php echo time(); ?>">
     </head>
 
     <body>
@@ -250,7 +250,7 @@
                         <form class="buytype" action="index.php" method="post">
                             <input type="hidden" name="prod_service" value="Duo">
                             <input type="hidden" name="quantity" value="1">
-                            <input type="submit" name="order" value="Order">
+                            <input type="button" name="order" value="Order">
                         </form>
                     </div>
                     <div class="type" id="squad">
@@ -269,7 +269,7 @@
                         <form class="buytype" action="index.php" method="post">
                             <input type="hidden" name="prod_service" value="Squad">
                             <input type="hidden" name="quantity" value="1">
-                            <input type="submit" name="order" value="Order">
+                            <input type="button" name="order" value="Order">
                         </form>
                     </div>
                 </div>

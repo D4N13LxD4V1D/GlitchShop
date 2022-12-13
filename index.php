@@ -47,7 +47,7 @@ if (isset($_POST['logout'])) {
                 <input type="submit" name="login" value="LOG-IN">
             </form>
             <span id="creds">
-                All images used in this Machine Project all belong to SM Entertainment. <br />
+                All images used in this Machine Project belong to SM Entertainment. <br />
                 No copyright infringement is intended.
             </span>
         </div>
@@ -61,7 +61,7 @@ if (isset($_POST['logout'])) {
                 <div id="links">
                     <a href="/"><img height="50px" src="media/GlitchMode.png" /></a>
                     <a href="checkout.php"> ABOUT </a>
-                    <a href="checkout.php"> SERVICES </a>
+                    <a href="checkout.php"> PRODUCTS </a>
                     <a href="checkout.php"> CONTACT INFORMATION </a>
                 </div>
                 <div id="icons">
@@ -69,49 +69,46 @@ if (isset($_POST['logout'])) {
                         <img height="30px" src="media/checkout.png" />
                         <div id="count"></div>
                     </a>
-                    <a href="/"><img height="30px" src="media/user.png" /></a>
                     <?php
                         if (isset($_COOKIE['user'])) {
                             echo '<div id = "nametag"> PLAYER ACCOUNT: <span id = "name">' . $_COOKIE['user'] . '</span></div>';
                         }
                     ?>
                     <div id="slider-menu">
+                        <div id = "slider-head">Account Settings</div>
                         <div id="orders">
                             <?php
+                            $user = $_COOKIE['user'];
                             try {
-                                $user = $_COOKIE['user'];
                                 $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
                                 if ($result->num_rows == 0) {
                                     throw new Exception("No orders");
                                 }
-                                echo '<h2>My Orders</h2>
+                                echo '<h2>MY ORDERS</h2>
                                     <table>
                                         <tr>
-                                            <th>Product/Service</th>
-                                            <th>Quantity</th>
-                                            <th>Edit</th>
+                                            <th>Product</th>
+                                            <th>Qty.</th>
+                                            <th></th>
                                         </tr>';
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
                                     echo '<form class="remove" action="order.php" method="post">
                                             <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
                                             <input type="hidden" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
-                                            <input type="submit" name="delete" value="Remove">
+                                            <input id="delete" type="submit" name="delete" value="🗑️">
                                         </form>';
                                     echo "</td></tr>";
                                 }
                                 echo '</table>';
-                                // checkout button
-                                echo '<form action="checkout.php" method="post">
-                                    <input type="submit" name="checkout" value="Checkout">
-                                </form>';
                             } catch (Exception $e) {
                                 echo "You have no orders.";
                             }
                             ?>
                         </div>
-                        <form action="index.php" method="post">
-                            <input type="submit" name="logout" value="Logout">
+                        <form class = "logoutform" action="index.php" method="post">
+                            <input id = "checkout" type="submit" name="checkout" value="CHECK-OUT">';
+                            <input id = "logout" type="submit" name="logout" value="LOG-OUT">
                         </form>
                     </div>
                 </div>
@@ -383,7 +380,7 @@ if (isset($_POST['logout'])) {
                 <h2> NAVIGATE </h2>
                 <hr />
                 <a href="checkout.php"> ABOUT </a>
-                <a href="checkout.php"> SERVICES </a>
+                <a href="checkout.php"> PRODUCTS </a>
                 <a href="checkout.php"> CONTACT INFORMATION </a>
             </div>
             <div id="shopinfo">

@@ -75,13 +75,16 @@ function removeOrder(form) {
 
 function updateCount() {
     var count = document.getElementById('count');
+    var chkt = document.getElementById('checkout');
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             if (xhr.responseText == 0) {
                 count.style.visibility = 'hidden';
+                chkt.style.display = 'none';
             } else {
                 count.style.visibility = 'visible';
+                chkt.style.display = 'block';
                 count.innerHTML = xhr.responseText;
             }
         }

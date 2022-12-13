@@ -31,27 +31,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result->num_rows == 0) {
                     throw new Exception("No orders");
                 }
-                echo '<h2>My Orders</h2>
+                echo '<h2>MY ORDERS</h2>
                     <table>
                         <tr>
-                            <th>Product/Service</th>
-                            <th>Quantity</th>
-                            <th>Edit</th>
+                            <th>Product</th>
+                            <th>Qty.</th>
+                            <th></th>
                         </tr>';
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
                     echo '<form class="remove" action="order.php" method="post">
                             <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
                             <input type="hidden" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
-                            <input type="submit" name="delete" value="Remove">
+                            <input id="delete" type="submit" name="delete" value="🗑️">
                         </form>';
                     echo "</td></tr>";
                 }
                 echo '</table>';
-                // checkout button
-                echo '<form action="checkout.php" method="post">
-                    <input type="submit" name="checkout" value="Checkout">
-                </form>';
             } catch (Exception $e) {
                 echo "You have no orders.";
             }

@@ -191,7 +191,7 @@ input:focus {
 }
 
 #icons>a {
-    margin: 0 5px 0 15px;
+    margin-right: 20px;
 }
 
 #cart {
@@ -232,23 +232,59 @@ input:focus {
 #slider-menu {
     position: absolute;
     right: 0;
-    top: 60px;
+    top: 70px;
     width: fit-content;
     padding: 30px;
     max-height: 0;
-    background-color: rgba(0, 0, 0);
     z-index: 1;
     display: none;
 }
 
-#slider-menu::after {
-    content: "";
-    position: absolute;
+#slider-head {
+    border: 1px solid gray;
+    border-radius: 10px 10px 0 0;
     width: 100%;
-    height: 5px;
-    background-color: var(--magenta);
-    bottom: 0;
-    left: 0;
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+#orders {
+    border: 1px solid gray;
+    background-color: white;
+    color: black;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#orders>table{width: 100%;}
+
+#orders>h2{margin-bottom: 5px;}
+th { padding: 5px; }
+td:hover {background-color: lightgray;}
+
+#delete {
+    background: none;
+}
+
+.logoutform {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+#logout, #checkout {
+    background-color: var(--neogreen);
+    font: 800 16px Roboto;
+    color: black;
+    width: 100%;
+    margin: 5px;
 }
 
 #icons:hover #slider-menu {

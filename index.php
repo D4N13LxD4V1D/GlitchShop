@@ -19,8 +19,8 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['logout'])) {
-    setcookie("user", "", time() - 3600, "/");
     unset($_COOKIE['user']);
+    setcookie("user", "", -1, "/");
     header("Refresh:0");
 }
 ?>
@@ -78,8 +78,8 @@ if (isset($_POST['logout'])) {
                     <div id="slider-menu">
                         <div id="orders">
                             <?php
-                            $user = $_COOKIE['user'];
                             try {
+                                $user = $_COOKIE['user'];
                                 $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
                                 if ($result->num_rows == 0) {
                                     throw new Exception("No orders");

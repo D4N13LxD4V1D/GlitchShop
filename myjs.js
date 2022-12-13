@@ -35,6 +35,7 @@ window.onload = function () {
         }
     }
 
+    updateButtons();
     updateCount();
 }
 
@@ -46,22 +47,7 @@ function placeOrder(form) {
             orders.innerHTML = xhr.responseText;
             notif();
             notify(("You added a " + (formData.get('prod_service')) + " subscription to your cart."));
-            var forms = document.getElementsByTagName('form');
-            for (var i = 0; i < forms.length; i++) {
-                forms[i].onsubmit = function (e) {
-                    var form = e.target;
-                    console.log(form);
-                    if (form.className == 'buytype') {
-                        e.preventDefault();
-                        placeOrder(form);
-                        updateCount();
-                    } else if (form.className == "remove") {
-                        e.preventDefault();
-                        removeOrder(form);
-                        updateCount();
-                    }
-                }
-            }
+            updateButtons();
         }
     }
     var formData = new FormData(form);
@@ -78,6 +64,7 @@ function removeOrder(form) {
             orders.innerHTML = xhr.responseText;
             notif();
             notify(("You removed a " + (formData.get('prod_service')) + " subscription from your cart."));
+            updateButtons();
         }
     }
     var formData = new FormData(form);
@@ -120,4 +107,23 @@ function notify(text) {
 function notif() {
     var sound = new Audio("media/notif.mp3");
     sound.play();
+}
+
+function updateButtons() {
+    var forms = document.getElementsByTagName('form');
+    for (var i = 0; i < forms.length; i++) {
+        forms[i].onsubmit = function (e) {
+            var form = e.target;
+            console.log(form);
+            if (form.className == 'buytype') {
+                e.preventDefault();
+                placeOrder(form);
+                updateCount();
+            } else if (form.className == "remove") {
+                e.preventDefault();
+                removeOrder(form);
+                updateCount();
+            }
+        }
+    }
 }

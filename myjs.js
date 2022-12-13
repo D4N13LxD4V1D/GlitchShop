@@ -48,6 +48,7 @@ function placeOrder(form) {
             notif();
             notify(("You added a " + (formData.get('prod_service')) + " subscription to your cart."));
             updateButtons();
+            updateCount();
         }
     }
     var formData = new FormData(form);
@@ -65,6 +66,7 @@ function removeOrder(form) {
             notif();
             notify(("You removed a " + (formData.get('prod_service')) + " subscription from your cart."));
             updateButtons();
+            updateCount();
         }
     }
     var formData = new FormData(form);

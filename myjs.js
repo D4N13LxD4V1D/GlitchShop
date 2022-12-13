@@ -45,7 +45,7 @@ function placeOrder(form) {
     }
     var formData = new FormData(form);
     formData.append('order', 'placeOrder');
-    xhr.open('POST', 'index.php', true);
+    xhr.open('POST', 'order.php', true);
     xhr.send(formData);
 }
 
@@ -62,7 +62,7 @@ function updateCount() {
             }
         }
     }
-    xhr.open('POST', 'index.php', true);
+    xhr.open('POST', 'order.php', true);
     var formData = new FormData();
     formData.append('count', 'true');
     xhr.send(formData);
@@ -70,13 +70,13 @@ function updateCount() {
 
 function notify(text) {
 
-    if(document.getElementById("alert")) document.getElementById("alert").remove();
-	
-	alertdiv = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
-	alertdiv.id = "alert";
+    if (document.getElementById("alert")) document.getElementById("alert").remove();
 
-	msg = alertdiv.appendChild(document.createElement("p"));
-	msg.innerHTML = text;
+    alertdiv = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
+    alertdiv.id = "alert";
+
+    msg = alertdiv.appendChild(document.createElement("p"));
+    msg.innerHTML = text;
 
 }
 

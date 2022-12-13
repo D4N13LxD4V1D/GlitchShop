@@ -93,7 +93,7 @@ if (isset($_POST['logout'])) {
                                         </tr>';
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
-                                    echo '<form action="index.php" method="post">
+                                    echo '<form action="order.php" method="post">
                                             <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
                                             <input type="number" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
                                             <input type="submit" name="delete" value="Remove">

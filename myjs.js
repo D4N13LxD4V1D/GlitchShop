@@ -22,9 +22,14 @@ window.onload = function () {
     for (var i = 0; i < forms.length; i++) {
         forms[i].onsubmit = function (e) {
             var form = e.target;
+            console.log(form);
             if (form.className == 'buytype') {
                 e.preventDefault();
                 placeOrder(form);
+                updateCount();
+            } else if (form.className == "remove") {
+                e.preventDefault();
+                removeOrder(form);
                 updateCount();
             }
         }
@@ -41,10 +46,42 @@ function placeOrder(form) {
             orders.innerHTML = xhr.responseText;
             notif();
             notify(("You added a " + (formData.get('prod_service')) + " subscription to your cart."));
+            var forms = document.getElementsByTagName('form');
+            for (var i = 0; i < forms.length; i++) {
+                forms[i].onsubmit = function (e) {
+                    var form = e.target;
+                    console.log(form);
+                    if (form.className == 'buytype') {
+                        e.preventDefault();
+                        placeOrder(form);
+                        updateCount();
+                    } else if (form.className == "remove") {
+                        e.preventDefault();
+                        removeOrder(form);
+                        updateCount();
+                    }
+                }
+            }
         }
     }
     var formData = new FormData(form);
     formData.append('order', 'placeOrder');
+    xhr.open('POST', 'order.php', true);
+    xhr.send(formData);
+}
+
+function removeOrder(form) {
+    var orders = document.getElementById('orders');
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            orders.innerHTML = xhr.responseText;
+            notif();
+            notify(("You removed a " + (formData.get('prod_service')) + " subscription from your cart."));
+        }
+    }
+    var formData = new FormData(form);
+    formData.append('delete', 'removeOrder');
     xhr.open('POST', 'order.php', true);
     xhr.send(formData);
 }

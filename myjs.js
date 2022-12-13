@@ -39,7 +39,8 @@ function placeOrder(form) {
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             orders.innerHTML = xhr.responseText;
-            alert('Your have order "' + formData.get('prod_service') + '".');
+            notif();
+            notify(("You added a " + (formData.get('prod_service')) + " subscription to your cart."));
         }
     }
     var formData = new FormData(form);
@@ -65,4 +66,21 @@ function updateCount() {
     var formData = new FormData();
     formData.append('count', 'true');
     xhr.send(formData);
+}
+
+function notify(text) {
+
+    if(document.getElementById("alert")) document.getElementById("alert").remove();
+	
+	alertdiv = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
+	alertdiv.id = "alert";
+
+	msg = alertdiv.appendChild(document.createElement("p"));
+	msg.innerHTML = text;
+
+}
+
+function notif() {
+    var sound = new Audio("media/notif.mp3");
+    sound.play();
 }

@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="login">
             <img height="100px" src="media/GIitchMode.png" />
             <span> ENTER YOUR PLAYER NAME </span>
-            <form method="POST" action="/">
+            <form method="POST" action="index.php">
                 <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()">
                 <input type="submit" name="login" value="LOG-IN">
             </form>

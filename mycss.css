@@ -151,7 +151,7 @@ input:focus {
     align-items: center;
     justify-content: space-between;
     top: 0;
-    z-index: 99;
+    z-index: 2;
 }
 
 .navbar::after {
@@ -543,4 +543,36 @@ h2 {
 
 #empty {
     height: 50vh;
+}
+
+#alert {
+    position: fixed;
+    background-color: var(--blue);
+    color: white;
+    align-items: center;
+    right: 30px;
+    bottom: 30px;
+    border-radius: 500px 500px 100px 500px;
+    padding: 15px;
+    animation: pop 0.25s, fade 1s;
+    animation-delay: 0s, 2s;
+    animation-timing-function: cubic-bezier(.25, .50, .75, 1.50);
+    animation-fill-mode: forwards;
+    z-index: 100;
+}
+
+@keyframes fade {
+    from {opacity :1;}
+    to {opacity :0;}
+}
+  
+@keyframes pop {
+    0% {
+      opacity: 0;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
 }

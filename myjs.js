@@ -26,11 +26,9 @@ window.onload = function () {
             if (form.className == 'buytype') {
                 e.preventDefault();
                 placeOrder(form);
-                updateCount();
             } else if (form.className == "remove") {
                 e.preventDefault();
                 removeOrder(form);
-                updateCount();
             }
         }
     }

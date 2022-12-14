@@ -126,8 +126,10 @@ function updateButtons() {
 function showCheckout() {
     checkoutmodal = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
     checkoutmodal.id = "checkout-modal";
-    checkoutmodal.onclick = function () {
-        checkoutmodal.remove();
+    checkoutmodal.onclick = function (e) {
+        if (e.target == checkoutmodal) {
+            checkoutmodal.remove();
+        }
     }
 
     checkout = checkoutmodal.appendChild(document.createElement("div"));

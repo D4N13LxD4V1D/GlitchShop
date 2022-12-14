@@ -65,6 +65,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $conn->query("DELETE FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = '$prod_service' AND QUANTITY = '$current_quantity'");
             }
+
+            try {
+                $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
+                if ($result->num_rows == 0) {
+                    throw new Exception("No orders");
+                }
+                echo '<h2>MY ORDERS</h2>
+                    <table>
+                        <tr>
+                            <th>Product</th>
+                            <th>Qty.</th>
+                            <th></th>
+                        </tr>';
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
+                    echo '<form class="remove" action="order.php" method="post">
+                            <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
+                            <input type="hidden" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
+                            <input id="delete" type="submit" name="delete" value="🗑️">
+                        </form>';
+                    echo "</td></tr>";
+                }
+                echo '</table>';
+            } catch (Exception $e) {
+                echo "You have no orders.";
+            }
         } else {
             header("Refresh:0");
         }

@@ -489,6 +489,7 @@ h2 {
     padding: 10px;
     text-align: center;
     width: 10%;
+    min-width: fit-content;
     background-color: black;
     color: white;
 }
@@ -611,4 +612,36 @@ h2 {
       opacity: 1;
       transform: scale(1, 1);
     }
+}
+
+#checkout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    animation: fade-in 0.25s;
+}
+
+@keyframes fade-in {
+    from {opacity :0;}
+    to {opacity :1;}
+}
+
+#checkout-modal>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 70%;
+    height: 70%;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }

@@ -115,7 +115,49 @@ function updateButtons() {
             } else if (form.className == "remove") {
                 e.preventDefault();
                 removeOrder(form);
+            } else if (form.className == "checkout") {
+                e.preventDefault();
+                showCheckout();
             }
         }
     }
+}
+
+function showCheckout() {
+    checkoutmodal = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
+    checkoutmodal.id = "checkout-modal";
+    checkoutmodal.onclick = function () {
+        checkoutmodal.remove();
+    }
+
+    checkout = checkoutmodal.appendChild(document.createElement("div"));
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            checkout.innerHTML = xhr.responseText;
+        }
+    }
+    xhr.open('POST', 'checkout.php', true);
+    xhr.send();
+}
+
+function scrollToElementByID(id) {
+    // get nav bar height
+    var nav = document.getElementsByClassName('navbar')[0];
+    var navHeight = nav.scrollHeight;
+
+    // get element position
+    var element = document.getElementById(id);
+    var elementPosition = element.offsetTop;
+
+    if (id == 'shop') {
+        elementPosition -= navHeight - 10;
+    }
+
+    // scroll to element
+    window.scrollTo({
+        top: elementPosition - navHeight,
+        behavior: "smooth"
+    });
 }

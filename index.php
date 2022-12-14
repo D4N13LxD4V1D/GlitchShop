@@ -46,9 +46,9 @@ if (isset($_POST['logout'])) {
             <div class="navbar">
                 <div id="links">
                     <a href="/"><img height="50px" src="media/GlitchMode.png" /></a>
-                    <a href="checkout.php"> ABOUT </a>
-                    <a href="checkout.php"> PRODUCTS </a>
-                    <a href="checkout.php"> CONTACT INFORMATION </a>
+                    <a onclick="scrollToElementByID('shop')"> ABOUT </a>
+                    <a onclick="scrollToElementByID('feature')"> PRODUCTS </a>
+                    <a onclick="scrollToElementByID('footer')"> CONTACT INFORMATION </a>
                 </div>
                 <div id="icons">
                     <a href="/" id="cart">
@@ -70,7 +70,7 @@ if (isset($_POST['logout'])) {
                     </div>
                 </div>
             </div>
-            <div class="shop">
+            <div id="shop">
                 <h1 id="hero"> Get into the Glitch Mode. </h1>
                 <div class="subtypes">
                     <div class="type" id="solo">
@@ -130,33 +130,6 @@ if (isset($_POST['logout'])) {
                             <input type="submit" name="order" value="Order">
                         </form>
                     </div>
-                </div>
-                <div class="methods">
-                    <div id="methodhead">
-                        Choose a billing method below:
-                    </div>
-                    <div class="method">
-                        <span>
-                            <h1> Monthly </h1>
-                            <span> Description </span>
-                        </span>
-                        <input type="submit" name="order" value="Select">
-                    </div>
-                    <div class="method">
-                        <span>
-                            <h1> Yearly </h1>
-                            <span> Description </span>
-                        </span>
-                        <input type="submit" name="order" value="Select">
-                    </div>
-                    <div class="method">
-                        <span>
-                            <h1> One-time </h1>
-                            <span> Description </span>
-                        </span>
-                        <input type="submit" name="order" value="Select">
-                    </div>
-                    <div id="methodfoot"> </div>
                 </div>
                 <div id="feature">
                     <div id="fpic"></div>
@@ -329,7 +302,9 @@ if (isset($_POST['logout'])) {
                     <div id="itemfoot"></div>
                 </div>
             </div>
-            <input type="submit" id="proceed" name="order" value="Proceed to Checkout">
+            <form class="checkout" action="checkout.php" method="post">
+                <input type="submit" id="proceed" name="order" value="Proceed to Checkout">
+            </form>
         </div>
         <div id="footer">
             <img height="200px" src="media/GlitchMode-3.png" />

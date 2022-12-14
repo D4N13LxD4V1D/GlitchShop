@@ -10,3 +10,7 @@
 .merch-active {
     outline: 5px solid var(--magenta);
 }
+
+.featured-item {
+    border: 1px solid var(--magenta);
+}

@@ -249,23 +249,26 @@ $allitems = array(
 );
 
 if ($_POST['action'] == 'getMerchItems') {
-    $items = $allitems[$_POST['item']];
 
-    foreach ($items as $item) {
-        echo '<div class="item">
-            <span class="itemprev">
-                <img src="' . $item['src'] . '" />
-                <span>
-                    <h2> ' . $item['name'] . ' </h2>
-                    <span> ' . $item['description'] . ' </span>
+    if ($_POST['item'] != 'all') {
+        $items = $allitems[$_POST['item']];
+
+        foreach ($items as $item) {
+            echo '<div class="item featured-item">
+                <span class="itemprev">
+                    <img src="' . $item['src'] . '" />
+                    <span>
+                        <h2> ' . $item['name'] . ' </h2>
+                        <span> ' . $item['description'] . ' </span>
+                    </span>
                 </span>
-            </span>
-            <div class="qtycont">
-                <input type="button" class="dec" value="-">
-                <input type="text" name="quantity" min="1" max="9" value="0">
-                <input type="button" class="inc" value="+">
-            </div>
-        </div>';
+                <div class="qtycont">
+                    <input type="button" class="dec" value="-">
+                    <input type="text" name="quantity" min="1" max="9" value="0">
+                    <input type="button" class="inc" value="+">
+                </div>
+            </div>';
+        }
     }
 
     $items = $allitems['all'];

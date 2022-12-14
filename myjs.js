@@ -7,68 +7,63 @@ window.onload = function () {
     // check if the user cookie is set
     if (document.cookie.indexOf('user=') != -1) {
         login.style.display = 'none';
+
         top.style.display = 'block';
         body.style.display = 'block';
         footer.style.display = 'grid';
+        showCurrentOrders();
     } else {
         login.style.display = 'flex';
+
         top.style.display = 'none';
         body.style.display = 'none';
         footer.style.display = 'none';
     }
+}
 
-    // get all form submit buttons
-    var forms = document.getElementsByTagName('form');
-    for (var i = 0; i < forms.length; i++) {
-        forms[i].onsubmit = function (e) {
-            var form = e.target;
-            console.log(form);
-            if (form.className == 'buytype') {
-                e.preventDefault();
-                placeOrder(form);
-            } else if (form.className == "remove") {
-                e.preventDefault();
-                removeOrder(form);
-            }
+function showCurrentOrders() {
+    var orders = document.getElementById('orders');
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            orders.innerHTML = xhr.responseText;
+
+            updateCount();
+            updateButtons();
         }
     }
-
-    updateButtons();
-    updateCount();
+    xhr.open('POST', 'order.php', true);
+    var formData = new FormData();
+    formData.append('action', 'getCurrentOrders');
+    xhr.send(formData);
 }
 
 function placeOrder(form) {
-    var orders = document.getElementById('orders');
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            orders.innerHTML = xhr.responseText;
-            notif();
             notify(("You added a " + (formData.get('prod_service')) + " subscription to your cart."));
-            updateButtons();
-            updateCount();
+
+            showCurrentOrders();
         }
     }
     var formData = new FormData(form);
-    formData.append('order', 'placeOrder');
+    formData.append('action', 'placeOrder');
     xhr.open('POST', 'order.php', true);
     xhr.send(formData);
 }
 
 function removeOrder(form) {
-    var orders = document.getElementById('orders');
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            orders.innerHTML = xhr.responseText;
-            notif();
             notify(("You removed a " + (formData.get('prod_service')) + " subscription from your cart."));
-            updateButtons();
-            updateCount();
+
+            showCurrentOrders();
         }
     }
     var formData = new FormData(form);
-    formData.append('delete', 'removeOrder');
+    formData.append('action', 'deleteOrder');
     xhr.open('POST', 'order.php', true);
     xhr.send(formData);
 }
@@ -91,7 +86,7 @@ function updateCount() {
     }
     xhr.open('POST', 'order.php', true);
     var formData = new FormData();
-    formData.append('count', 'true');
+    formData.append('action', 'getOrderCount');
     xhr.send(formData);
 }
 
@@ -105,9 +100,6 @@ function notify(text) {
     msg = alertdiv.appendChild(document.createElement("p"));
     msg.innerHTML = text;
 
-}
-
-function notif() {
     var sound = new Audio("media/notif.mp3");
     sound.play();
 }
@@ -117,15 +109,12 @@ function updateButtons() {
     for (var i = 0; i < forms.length; i++) {
         forms[i].onsubmit = function (e) {
             var form = e.target;
-            console.log(form);
             if (form.className == 'buytype') {
                 e.preventDefault();
                 placeOrder(form);
-                updateCount();
             } else if (form.className == "remove") {
                 e.preventDefault();
                 removeOrder(form);
-                updateCount();
             }
         }
     }

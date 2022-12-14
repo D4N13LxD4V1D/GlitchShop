@@ -1,18 +1,4 @@
 <?php
-$conn = new mysqli("localhost", "root", "");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$conn->query("CREATE DATABASE IF NOT EXISTS GlitchDB");
-$conn->query("CREATE TABLE IF NOT EXISTS GlitchDB.ORDER (
-    ID INT(6) UNSIGNED AUTO_INCREMENT,
-    USER varchar(30) NOT NULL PRIMARY KEY,
-    PROD_SERVICE varchar(255) NOT NULL,
-    QUANTITY int
-    )");
-
 if (isset($_POST['login'])) {
     setcookie("user", $_POST['user'], time() + 3600, "/");
     header("Refresh:0");
@@ -75,40 +61,11 @@ if (isset($_POST['logout'])) {
                         }
                     ?>
                     <div id="slider-menu">
-                        <div id = "slider-head">Account Settings</div>
-                        <div id="orders">
-                            <?php
-                            $user = $_COOKIE['user'];
-                            try {
-                                $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
-                                if ($result->num_rows == 0) {
-                                    throw new Exception("No orders");
-                                }
-                                echo '<h2>MY ORDERS</h2>
-                                    <table>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Qty.</th>
-                                            <th></th>
-                                        </tr>';
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr><td>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td><td>";
-                                    echo '<form class="remove" action="order.php" method="post">
-                                            <input type="hidden" name="prod_service" value="' . $row["PROD_SERVICE"] . '">
-                                            <input type="hidden" name="quantity" value="1" min="1" max="' . $row["QUANTITY"] . '">
-                                            <input id="delete" type="submit" name="delete" value="🗑️">
-                                        </form>';
-                                    echo "</td></tr>";
-                                }
-                                echo '</table>';
-                            } catch (Exception $e) {
-                                echo "You have no orders.";
-                            }
-                            ?>
-                        </div>
-                        <form class = "logoutform" action="index.php" method="post">
-                            <input id = "checkout" type="submit" name="checkout" value="CHECK-OUT">';
-                            <input id = "logout" type="submit" name="logout" value="LOG-OUT">
+                        <div id="slider-head">Account Settings</div>
+                        <div id="orders"></div>
+                        <form class="logoutform" action="index.php" method="post">
+                            <input id="checkout" type="submit" name="checkout" value="CHECK-OUT">';
+                            <input id="logout" type="submit" name="logout" value="LOG-OUT">
                         </form>
                     </div>
                 </div>

@@ -58,6 +58,11 @@
     src: url('font/VT323/VT323-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto/Roboto-Regular.ttf');
+}
+
 :root {
     --magenta: #E52F84;
     --cyan: #18FEEA;
@@ -76,6 +81,10 @@
 
 html {
     overflow-x: hidden;
+}
+
+body {
+    font: Roboto;
 }
 
 input:focus {

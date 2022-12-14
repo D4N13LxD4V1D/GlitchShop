@@ -22,6 +22,7 @@ window.onload = function () {
 
     // merches
     var merches = document.getElementsByClassName('merch');
+    // showMerches('all'); // uncomment once info has been updated
     for (var i = 0; i < merches.length; i++) {
         merches[i].addEventListener('click', function () {
             var merchName = this.id;
@@ -39,20 +40,24 @@ window.onload = function () {
                 this.classList.add('merch-active');
             }
 
-            var items = document.getElementsByClassName('items')[0];
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    items.innerHTML = xhr.responseText;
-                }
-            }
-            xhr.open('POST', 'merch.php', true);
-            var formData = new FormData();
-            formData.append('action', 'getMerchItems');
-            formData.append('item', merchName);
-            xhr.send(formData);
+            showMerches(merchName);
         });
     }
+}
+
+function showMerches(merchName) {
+    var items = document.getElementsByClassName('items')[0];
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            items.innerHTML = xhr.responseText;
+        }
+    }
+    xhr.open('POST', 'merch.php', true);
+    var formData = new FormData();
+    formData.append('action', 'getMerchItems');
+    formData.append('item', merchName);
+    xhr.send(formData);
 }
 
 function showCurrentOrders() {

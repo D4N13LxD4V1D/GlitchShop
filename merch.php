@@ -7,13 +7,6 @@ echo '<div id="itemhead">
 // create a new array to store the items
 $allitems = array(
     'all' => array(
-        // a4
-        array(
-            'name' => 'A4 - 1',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/a4-1.jpg'
-        ),
         // album
         array(
             'name' => 'Album 1',
@@ -26,6 +19,13 @@ $allitems = array(
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/album-2.jpg'
+        ),
+        // a4
+        array(
+            'name' => 'A4 - 1',
+            'description' => 'Description',
+            'price' => '1.00',
+            'src' => 'media/items/a4-1.jpg'
         ),
         // film
         array(

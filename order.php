@@ -7,8 +7,8 @@ if ($conn->connect_error) {
 
 $conn->query("CREATE DATABASE IF NOT EXISTS GlitchDB");
 $conn->query("CREATE TABLE IF NOT EXISTS GlitchDB.ORDER (
-    ID INT(6) UNSIGNED AUTO_INCREMENT,
-    USER varchar(30) NOT NULL PRIMARY KEY,
+    ID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    USER varchar(30) NOT NULL,
     PROD_SERVICE varchar(255) NOT NULL,
     QUANTITY int
     )");

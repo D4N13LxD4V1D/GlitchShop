@@ -325,11 +325,6 @@ if ($_POST['action'] == 'getMerchItems') {
             <form class="buyitem">
                 <div class="qtycont">
                     <input type="hidden" name="prod_service" value="' . $item['name'] . '">
-<<<<<<< Updated upstream
-                    <input type="button" class="dec" value="-">
-                    <input type="number" name="quantity" min="0" max="9" value="' . $quantity . '">
-                    <input type="button" class="inc" value="+">
-=======
                     <input type="button" class="dec" value="-"
                         onclick="this.parentNode.querySelector(\'input[type=number]\').stepDown()"
                         onmousedown="minus(this.parentNode.querySelector(\'input[type=number]\').value)">
@@ -337,7 +332,6 @@ if ($_POST['action'] == 'getMerchItems') {
                     <input type="button" class="inc" value="+"
                         onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()"
                         onmousedown="plus()">
->>>>>>> Stashed changes
                 </div>
             </form>
         </div>';

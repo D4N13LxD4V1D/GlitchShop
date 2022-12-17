@@ -14,11 +14,11 @@ try {
             <tr>
                 <th>No.</th>
                 <th>Product</th>
-                <th>Quantity</th>
+                <th>Qty.</th>
             </tr>';
     while ($row = $result->fetch_assoc()) {
         $num++;
-        echo "<tr><td>" . $num . "</td><td id = 'receiptline'>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>";
+        echo "<tr><td>" . $num . "</td><td class = 'receiptline'>" . $row["PROD_SERVICE"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>";
     }
     
     echo '</table>';

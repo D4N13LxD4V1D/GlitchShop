@@ -266,6 +266,8 @@ input:focus {
     padding: 10px 20px 10px 20px;
     width: 100%;
     text-align: center;
+    overflow: auto;
+    max-height: 50vh;
 }
 
 #orders_check {
@@ -276,10 +278,9 @@ input:focus {
     text-align: center;
 }
 
-#orders>table { width: 100%; }
-#orders_check>table { width: 100%; }
+#orders>table, #orders_check>table { width: 100%; }
 #receipt { margin: 30px 0 30px 0; }
-#receiptline { padding: 10px; }
+.receiptline { padding: 10px; text-align: center; }
 
 #orders>h2, #orders_check>h2{margin-bottom: 5px;}
 th { padding: 5px; }
@@ -684,6 +685,7 @@ input::-webkit-inner-spin-button {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
+    max-height: 80vh;
     width: 30%;
     border-radius: 20px;
     padding: 20px;

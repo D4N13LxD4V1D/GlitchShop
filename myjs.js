@@ -45,16 +45,6 @@ window.onload = function () {
     }
 }
 
-function plus() {
-    count = document.getElementById("count");
-    if (count.innerHTML != "9") { count.innerHTML = parseInt(count.innerHTML) + 1 };
-}
-
-function minus(num) {
-    count = document.getElementById("count");
-    if (num != 0) { count.innerHTML = parseInt(count.innerHTML) - 1 };
-}
-
 function showMerches(merchName) {
     var items = document.getElementsByClassName('items')[0];
     var xhr = new XMLHttpRequest();

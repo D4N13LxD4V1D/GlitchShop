@@ -266,10 +266,10 @@ if ($_POST['action'] == 'getMerchItems') {
                     <div class="qtycont">
                         <input type="hidden" name="prod_service" value="' . $item['name'] . '">
                         <input type="button" class="dec" value="-"
-                            onclick="this.parentNode.querySelector("input[type=number]").stepDown()">
+                            onclick="this.parentNode.querySelector(\'input[type=number]\').stepDown()">
                         <input type="number" name="quantity" min="0" max="9" value="0">
                         <input type="button" class="inc" value="+"
-                            onclick="this.parentNode.querySelector("input[type=number]"").stepUp()">
+                            onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()">
                     </div>
                 </form>
             </div>';

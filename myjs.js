@@ -45,6 +45,15 @@ window.onload = function () {
     }
 }
 
+function plus() {
+    count = document.getElementById("count");
+    if (count.innerHTML != "9") { count.innerHTML = parseInt(count.innerHTML) + 1 };
+}
+
+function minus(num) {
+    count = document.getElementById("count");
+    if (num != 0) { count.innerHTML = parseInt(count.innerHTML) - 1 };
+}
 
 function showMerches(merchName) {
     var items = document.getElementsByClassName('items')[0];
@@ -68,7 +77,6 @@ function showCurrentOrders() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             orders.innerHTML = xhr.responseText;
-
             updateCount();
             updateButtons();
             showMerches(document.getElementsByClassName('merch-active')[0] ? document.getElementsByClassName('merch-active')[0].id : 'all');
@@ -85,7 +93,6 @@ function placeOrder(form) {
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             notify(("You added a " + (formData.get('prod_service')) + " subscription to your cart."));
-
             showCurrentOrders();
         }
     }
@@ -118,7 +125,7 @@ function removeOrder(form) {
 
 function updateCount() {
     var count = document.getElementById('count');
-    var chkt = document.getElementById('checkout');
+    var chkt = document.getElementsByClassName('checkout')[0];
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {

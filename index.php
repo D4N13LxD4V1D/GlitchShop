@@ -28,7 +28,7 @@ if (isset($_POST['logout'])) {
         <div id="login">
             <img height="100px" src="media/GIitchMode.png" />
             <span> ENTER YOUR PLAYER NAME </span>
-            <form method="POST" action="/">
+            <form method="POST" action="index.php">
                 <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()">
                 <input type="submit" name="login" value="LOG-IN">
             </form>
@@ -67,7 +67,7 @@ if (isset($_POST['logout'])) {
                             <form class="checkout">
                                 <input id="checkout" type="submit" name="checkout" value="CHECK-OUT">
                             </form>
-                            <form action="/" method="post">
+                            <form class="logout" action="/" method="post">
                                 <input id="logout" type="submit" name="logout" value="LOG-OUT">
                             </form>
                         </div>
@@ -76,6 +76,7 @@ if (isset($_POST['logout'])) {
             </div>
             <div id="shop">
                 <h1 id="hero"> Get into the Glitch Mode. </h1>
+                <h2 id="subhero"> Subscribe to our combined gaming and music platform to get amazing benefits! </h2>
                 <div class="subtypes">
                     <div class="type" id="solo">
                         <div class="descrip">
@@ -85,9 +86,9 @@ if (isset($_POST['logout'])) {
                         </div>
                         <div class=details>
                             <ul>
-                                <li> Detail #1 </li>
-                                <li> Detail #1 </li>
-                                <li> Detail #1 </li>
+                                <li> Remove all ads, save music offline </li>
+                                <li> Up to one free game every week </li>
+                                <li> 👾 100 Game Credits </li>
                             </ul>
                         </div>
                         <form class="buytype">
@@ -104,9 +105,10 @@ if (isset($_POST['logout'])) {
                         </div>
                         <div class=details>
                             <ul>
-                                <li> Detail #1 </li>
-                                <li> Detail #1 </li>
-                                <li> Detail #1 </li>
+                                <li> Remove all ads, save music offline </li>
+                                <li> Activate shared account </li>
+                                <li> Up to two free games every week </li>
+                                <li> 👾 200 Game Credits </li>
                             </ul>
                         </div>
                         <form class="buytype">
@@ -123,9 +125,10 @@ if (isset($_POST['logout'])) {
                         </div>
                         <div class=details>
                             <ul>
-                                <li> Detail #1 </li>
-                                <li> Detail #1 </li>
-                                <li> Detail #1 </li>
+                                <li> Remove all ads, save music offline </li>
+                                <li> Activate shared account </li>
+                                <li> Up to five free games every week </li>
+                                <li> 👾 500 Game Credits </li>
                             </ul>
                         </div>
                         <form class="buytype">
@@ -138,9 +141,8 @@ if (isset($_POST['logout'])) {
                 <div id="feature">
                     <div id="fpic"></div>
                     <div id="fdescrip">
-                        <span> Featured Artist <span> NCT DREAM Glitch Mode items available for purchase.
-                            </span></span>
-                        <input type="submit" name="order" value="Buy Now">
+                        <span> Featuring NCT DREAM </span>
+                        <span> NCT DREAM Glitch Mode items available for purchase. <br/> Click on member portraits to avail exclusive items. </span>
                     </div>
                 </div>
                 <div class="merches">
@@ -176,7 +178,7 @@ if (isset($_POST['logout'])) {
                 <div class="items"></div>
             </div>
             <form class="checkout">
-                <input type="submit" id="proceed" name="order" value="Proceed to Checkout">
+                <input type="submit" id="proceed" name="order" value="PROCEED TO CHECK-OUT">
             </form>
         </div>
         <div id="footer">

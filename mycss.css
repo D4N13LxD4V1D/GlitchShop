@@ -268,11 +268,22 @@ input:focus {
     text-align: center;
 }
 
-#orders>table{width: 100%;}
+#orders_check {
+    background-color: white;
+    color: black;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    text-align: center;
+}
 
-#orders>h2{margin-bottom: 5px;}
+#orders>table { width: 100%; }
+#orders_check>table { width: 100%; }
+#receipt { margin: 30px 0 30px 0; }
+#receiptline { padding: 10px; }
+
+#orders>h2, #orders_check>h2{margin-bottom: 5px;}
 th { padding: 5px; }
-td:hover {background-color: lightgray;}
+#delete:hover {background-color: lightgray;}
 
 #delete {
     background: none;
@@ -288,12 +299,16 @@ td:hover {background-color: lightgray;}
     background-color: white;
 }
 
+.logout, .checkout {
+    width: 100%;
+    margin: 5px;
+}
+
 #logout, #checkout {
     background-color: var(--neogreen);
     font: 800 16px Roboto;
     color: black;
     width: 100%;
-    margin: 5px;
 }
 
 #icons:hover #slider-menu {
@@ -310,10 +325,17 @@ td:hover {background-color: lightgray;}
 }
 
 #hero {
-    margin: 10vh;
+    margin-top: 10vh;
+    margin-bottom: 30px;
     text-align: center;
     font: 800 72px 'VT323';
     color: black;
+}
+
+#subhero {
+    margin-bottom: 10vh;
+    text-align: center;
+    font: 600 24px 'Futura';
 }
 
 .subtypes {
@@ -333,6 +355,7 @@ td:hover {background-color: lightgray;}
 }
 
 .details {
+    min-height: 200px;
     border: 1px solid gray;
     padding: 30px;
 }
@@ -403,36 +426,30 @@ h2 {
     margin: 10vh 0 10vh 0;
 }
 
-#fdescrip>input[type=submit] {
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    width: 10%;
-    background-color: var(--yellow);
-}
-
 #fpic {
     background-image: url("media/featured.jpg");
     background-size: cover;
     background-position: center;
     filter: brightness(50%);
-    height: 100%;
+    height: 50%;
     width: 100%;
+    position: absolute;
 }
 
 #fdescrip {
-    position: relative;
-    left: 30px;
-    bottom: calc(10vh + 10px);
-    width: 95%;
-    margin: 0;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    margin: 10px;
     display: flex;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    color: white;
 }
 
-#fdescrip>span {
+#fdescrip>span:first-child {
     color: white;
     font: 800 72px 'VT323';
 }
@@ -450,10 +467,13 @@ h2 {
 .merch {
     margin: 0;
     padding: 0;
+    background-color: black;
+    border: 7px solid black;
 }
 
 .merch-active {
-    outline: 5px solid var(--magenta);
+    border-width: 7px;
+    border-image: linear-gradient(to bottom, var(--magenta), var(--cyan), var(--neogreen)) 1;
 }
 
 #memname {
@@ -466,14 +486,9 @@ h2 {
 
 #mempic {
     width: 100%;
+    display: block;
 }
 
-.methods {
-    width: 50%;
-    margin: 10vh 25% 10vh 25%;
-}
-
-#methodhead,
 #itemhead {
     border: 1px solid gray;
     border-radius: 20px 20px 0 0;
@@ -482,17 +497,19 @@ h2 {
     color: white;
 }
 
-.method,
 .item {
     border: 1px solid gray;
     padding: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 2px;
 }
 
 .featured-item {
-    border: 1px solid var(--magenta);
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, var(--magenta), var(--cyan), var(--neogreen)) 1;
 }
 
 .method>span>h1 {
@@ -566,7 +583,14 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 
-#methodfoot,
+.qtycont>input[type=button]:focus {
+    background-color: var(--cyan);
+}
+
+.qtycont>input[type=button]:active {
+    background-color: var(--blue);
+}
+
 #itemfoot {
     border: 1px solid gray;
     border-radius: 0 0 20px 20px;
@@ -646,6 +670,7 @@ input::-webkit-inner-spin-button {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     animation: fade-in 0.25s;
+    z-index: 3;
 }
 
 @keyframes fade-in {
@@ -659,8 +684,7 @@ input::-webkit-inner-spin-button {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    width: 70%;
-    height: 70%;
+    width: 30%;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -668,3 +692,24 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: center;
 }
+
+#receipthead {
+    font: 800 32px 'VT323';
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background: black; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+}
+  
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan);
+  }

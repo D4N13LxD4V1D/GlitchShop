@@ -38,6 +38,14 @@ if (isset($_POST['logout'])) {
                 No copyright infringement is intended.
             </span>
         </div>
+        <div id="about">
+            <h1 class="glitch" id="hero"> About Glitch Mode </h1>
+            <h2 id="subhero"> Glitch Mode is a combined gaming and music subscription service where users can access
+                exclusive tracks from different artists and play expert-curated games. Subscribers can enjoy ad-free
+                listening and get free weekly games with game credits. Glitch Mode also features a different artist 
+                monthly and promotes their merchandise for a limited time. </h2>
+            <img height="100px" src="media/GIitchMode.png" />
+        </div>
         <div class="top">
             <video id="promo" height="100%" width="100%" autoplay muted loop>
                 <source src="media/GlitchMode.mp4" type="video/mp4">
@@ -47,7 +55,7 @@ if (isset($_POST['logout'])) {
             <div class="navbar">
                 <div id="links">
                     <a href="/"><img height="50px" src="media/GlitchMode.png" /></a>
-                    <a onclick="scrollToElementByID('shop')"> ABOUT </a>
+                    <a onclick="scrollToElementByID('about')"> ABOUT </a>
                     <a onclick="scrollToElementByID('feature')"> PRODUCTS </a>
                     <a onclick="scrollToElementByID('footer')"> CONTACT INFORMATION </a>
                 </div>
@@ -68,7 +76,7 @@ if (isset($_POST['logout'])) {
                             <form class="checkout">
                                 <input id="checkout" type="submit" name="checkout" value="CHECK-OUT">
                             </form>
-                            <form class="logout" action="/" method="post">
+                            <form class="logout" action="index.php" method="post">
                                 <input id="logout" type="submit" name="logout" value="LOG-OUT">
                             </form>
                         </div>
@@ -76,7 +84,7 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>
             <div id="shop">
-                <h1 id="hero"> Get into the Glitch Mode. </h1>
+                <h1 class="glitch" id="hero"> Get into the Glitch Mode! </h1>
                 <h2 id="subhero"> Subscribe to our combined gaming and music platform to get amazing benefits! </h2>
                 <div class="subtypes">
                     <div class="type" id="solo">
@@ -141,7 +149,7 @@ if (isset($_POST['logout'])) {
                 </div>
                 <div id="feature">
                     <div id="fpic"></div>
-                    <div id="fdescrip">
+                    <div class = "glitch" id="fdescrip">
                         <span> Featuring NCT DREAM </span>
                         <span> NCT DREAM Glitch Mode items available for purchase. <br /> Click on member portraits to
                             avail exclusive items. </span>
@@ -184,7 +192,7 @@ if (isset($_POST['logout'])) {
             </form>
         </div>
         <div id="footer">
-            <img height="200px" src="media/GlitchMode-3.png" />
+            <img class = "glitch" height="200px" src="media/GlitchMode-3.png" />
             <div id="links2">
                 <h2> NAVIGATE </h2>
                 <hr />

@@ -1,21 +1,23 @@
 window.onload = function () {
-    PowerGlitch.glitch('.top');
+    PowerGlitch.glitch('.glitch');
     var login = document.getElementById('login');
+    var about = document.getElementById('about');
     var top = document.getElementsByClassName('top')[0];
     var body = document.getElementsByClassName('body')[0];
     var footer = document.getElementById('footer');
 
+    about.style.display = 'none';
+
     // check if the user cookie is set
     if (document.cookie.indexOf('user=') != -1) {
         login.style.display = 'none';
-
         top.style.display = 'block';
         body.style.display = 'block';
         footer.style.display = 'grid';
         showCurrentOrders();
+        autoscroll();
     } else {
         login.style.display = 'flex';
-
         top.style.display = 'none';
         body.style.display = 'none';
         footer.style.display = 'none';
@@ -43,7 +45,21 @@ window.onload = function () {
 
             showMerches(merchName);
         });
-    }
+    }   
+
+}
+
+function autoscroll() {
+    var nav = document.getElementsByClassName('navbar')[0];
+    var navHeight = nav.scrollHeight;
+    var element = document.getElementById('shop');
+    var elementPosition = element.offsetTop;
+
+    // scroll to element
+    window.scrollTo({
+        top: elementPosition - navHeight,
+        behavior: "smooth"
+    });
 }
 
 function showMerches(merchName) {
@@ -215,14 +231,17 @@ function showCheckout() {
 function scrollToElementByID(id) {
     // get nav bar height
     var nav = document.getElementsByClassName('navbar')[0];
+    var about = document.getElementById('about');
+    var top = document.getElementsByClassName('top')[0];
     var navHeight = nav.scrollHeight;
 
     // get element position
     var element = document.getElementById(id);
     var elementPosition = element.offsetTop;
 
-    if (id == 'shop') {
-        elementPosition -= navHeight - 10;
+    if (id == 'about') {
+        about.style.display = 'flex';
+        top.style.display = 'none';
     }
 
     // scroll to element

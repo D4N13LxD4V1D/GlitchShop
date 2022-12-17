@@ -23,6 +23,7 @@ if (isset($_POST['logout'])) {
         <script src="myjs.js"></script>
         <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
         <link rel="stylesheet" href="mycss.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="responsive.css?v=<?php echo time(); ?>">
     </head>
 
     <body>
@@ -42,7 +43,7 @@ if (isset($_POST['logout'])) {
             <h1 class="glitch" id="hero"> About Glitch Mode </h1>
             <h2 id="subhero"> Glitch Mode is a combined gaming and music subscription service where users can access
                 exclusive tracks from different artists and play expert-curated games. Subscribers can enjoy ad-free
-                listening and get free weekly games with game credits. Glitch Mode also features a different artist 
+                listening and get free weekly games with game credits. Glitch Mode also features a different artist
                 monthly and promotes their merchandise for a limited time. </h2>
             <img height="100px" src="media/GIitchMode.png" />
         </div>
@@ -149,7 +150,7 @@ if (isset($_POST['logout'])) {
                 </div>
                 <div id="feature">
                     <div id="fpic"></div>
-                    <div class = "glitch" id="fdescrip">
+                    <div class="glitch" id="fdescrip">
                         <span> Featuring NCT DREAM </span>
                         <span> NCT DREAM Glitch Mode items available for purchase. <br /> Click on member portraits to
                             avail exclusive items. </span>
@@ -192,7 +193,7 @@ if (isset($_POST['logout'])) {
             </form>
         </div>
         <div id="footer">
-            <img class = "glitch" height="200px" src="media/GlitchMode-3.png" />
+            <img class="glitch" height="200px" src="media/GlitchMode-3.png" />
             <div id="links2">
                 <h2> NAVIGATE </h2>
                 <hr />

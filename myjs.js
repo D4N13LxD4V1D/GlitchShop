@@ -45,21 +45,14 @@ window.onload = function () {
 
             showMerches(merchName);
         });
-    }   
+    }
 
 }
 
 function autoscroll() {
-    var nav = document.getElementsByClassName('navbar')[0];
-    var navHeight = nav.scrollHeight;
-    var element = document.getElementById('shop');
-    var elementPosition = element.offsetTop;
-
-    // scroll to element
-    window.scrollTo({
-        top: elementPosition - navHeight,
-        behavior: "smooth"
-    });
+    setTimeout(function () {
+        scrollToElementByID('shop');
+    }, 1000);
 }
 
 function showMerches(merchName) {

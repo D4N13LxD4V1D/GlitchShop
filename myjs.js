@@ -52,6 +52,7 @@ function showMerches(merchName) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             items.innerHTML = xhr.responseText;
+            updateButtons();
         }
     }
     xhr.open('POST', 'merch.php', true);
@@ -164,20 +165,35 @@ function updateButtons() {
                 removeOrder(form);
             } else if (form.className == "checkout") {
                 e.preventDefault();
-
-                var itemForms = document.getElementsByClassName('buyitem');
-                for (var i = 0; i < itemForms.length; i++) {
-                    placeOrder(itemForms[i]);
-                }
                 showCheckout();
             }
+        }
+    }
+
+    var inc = document.getElementsByClassName('inc');
+    for (var i = 0; i < inc.length; i++) {
+        inc[i].onclick = function (e) {
+            var form = this.parentNode.parentNode;
+            this.parentNode.querySelector('input[type=number]').stepUp();
+            placeOrder(form);
+            showMerches(document.getElementsByClassName('merch-active')[0] ? document.getElementsByClassName('merch-active')[0].id : 'all');
+        }
+    }
+
+    var dec = document.getElementsByClassName('dec');
+    for (var i = 0; i < dec.length; i++) {
+        dec[i].onclick = function (e) {
+            var form = this.parentNode.parentNode;
+            this.parentNode.querySelector('input[type=number]').stepDown();
+            placeOrder(form);
+            showMerches(document.getElementsByClassName('merch-active')[0] ? document.getElementsByClassName('merch-active')[0].id : 'all');
         }
     }
 }
 
 function showCheckout() {
     if (document.getElementById('checkout-modal')) { return; }
-    
+
     checkoutmodal = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
     checkoutmodal.id = "checkout-modal";
     checkoutmodal.onclick = function (e) {

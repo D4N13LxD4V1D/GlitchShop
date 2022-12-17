@@ -104,6 +104,10 @@ if (isset($_COOKIE['user'])) {
 
     if ($_POST['action'] == "getOrderCount") {
         $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user'");
-        echo $result->num_rows;
+        $total = 0;
+        while ($row = $result->fetch_assoc()) {
+            $total += $row["QUANTITY"];
+        }
+        echo $total;
     }
 }

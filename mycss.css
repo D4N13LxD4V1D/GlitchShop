@@ -452,6 +452,10 @@ h2 {
     padding: 0;
 }
 
+.merch-active {
+    outline: 5px solid var(--magenta);
+}
+
 #memname {
     background-color: #000;
     padding: 10px;
@@ -485,6 +489,10 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.featured-item {
+    border: 1px solid var(--magenta);
 }
 
 .method>span>h1 {
@@ -540,7 +548,14 @@ h2 {
     background-color: var(--green);
 }
 
-.qtycont>input[type=text] {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qtycont>input[type=number] {
+    -moz-appearance: textfield;
     border: 1px solid gray;
     height: 40px;
     width: 60px;

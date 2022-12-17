@@ -9,118 +9,118 @@ $allitems = array(
     'all' => array(
         // album
         array(
-            'name' => 'Album 1',
+            'name' => 'NCT DREAM Glitch Mode Album',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/album-1.jpg'
         ),
+        // array(
+        //     'name' => 'NCT DREAM Glitch Mode Album',
+        //     'description' => 'Description',
+        //     'price' => '1.00',
+        //     'src' => 'media/items/album-2.jpg'
+        // ),
+        // photobook
         array(
-            'name' => 'Album 2',
+            'name' => 'NCT DREAM Glitch Mode Photobook',
             'description' => 'Description',
             'price' => '1.00',
-            'src' => 'media/items/album-2.jpg'
+            'src' => 'media/items/photobook-1.jpg'
         ),
+        // array(
+        //     'name' => 'NCT DREAM Glitch Mode Photobook',
+        //     'description' => 'Description',
+        //     'price' => '1.00',
+        //     'src' => 'media/items/photobook-2.jpg'
+        // ),
         // a4
         array(
-            'name' => 'A4 - 1',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-1.jpg'
         ),
         // film
         array(
-            'name' => 'Film 1',
+            'name' => 'NCT DREAM Film Photo v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-1.jpg'
         ),
         array(
-            'name' => 'Film 2',
+            'name' => 'NCT DREAM Film Photo v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-2.jpg'
         ),
-        // jacket
-        array(
-            'name' => 'Jacket 1',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/jacket-1.jpg'
-        ),
-        array(
-            'name' => 'Jacket 2',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/jacket-2.jpg'
-        ),
-        // lace
-        array(
-            'name' => 'Lace 1',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/lace-1.jpg'
-        ),
-        array(
-            'name' => 'Lace 2',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/lace-2.jpg'
-        ),
-        // photobook
-        array(
-            'name' => 'Photobook 1',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/photobook-1.jpg'
-        ),
-        array(
-            'name' => 'Photobook 2',
-            'description' => 'Description',
-            'price' => '1.00',
-            'src' => 'media/items/photobook-2.jpg'
-        ),
         // poca
         array(
-            'name' => 'Poca 1',
+            'name' => 'NCT DREAM Photocard v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/poca-1.jpg'
         ),
         array(
-            'name' => 'Poca 2',
+            'name' => 'NCT DREAM Photocard v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/poca-2.jpg'
         ),
+        // jacket
+        array(
+            'name' => 'NCT DREAM Jacket',
+            'description' => 'Description',
+            'price' => '1.00',
+            'src' => 'media/items/jacket-1.jpg'
+        ),
+        // array(
+        //     'name' => 'NCT DREAM Jacket',
+        //     'description' => 'Description',
+        //     'price' => '1.00',
+        //     'src' => 'media/items/jacket-2.jpg'
+        // ),
         // shirt
         array(
-            'name' => 'Shirt 1',
+            'name' => 'NCT DREAM Shirt',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/shirt-1.jpg'
         ),
+        // array(
+        //     'name' => 'NCT DREAM Shirt',
+        //     'description' => 'Description',
+        //     'price' => '1.00',
+        //     'src' => 'media/items/shirt-2.jpg'
+        // ),
+        // lace
         array(
-            'name' => 'Shirt 2',
+            'name' => 'NCT DREAM ID Lace',
             'description' => 'Description',
             'price' => '1.00',
-            'src' => 'media/items/shirt-2.jpg'
-        )
+            'src' => 'media/items/lace-1.jpg'
+        ) //,
+        // array(
+        //     'name' => 'NCT DREAM ID Lace',
+        //     'description' => 'Description',
+        //     'price' => '1.00',
+        //     'src' => 'media/items/lace-2.jpg'
+        // )
     ),
     'mark' => array(
         array(
-            'name' => 'A4 - Mark',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Mark',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-mark.jpg'
         ),
         array(
-            'name' => 'Film - Mark',
+            'name' => 'NCT DREAM Film Photo - Mark v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-mark-1.jpg'
         ),
         array(
-            'name' => 'Film - Mark',
+            'name' => 'NCT DREAM Film Photo - Mark v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-mark-2.jpg'
@@ -128,19 +128,19 @@ $allitems = array(
     ),
     'renjun' => array(
         array(
-            'name' => 'A4 - Renjun',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Renjun',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-renjun.jpg'
         ),
         array(
-            'name' => 'Film - Renjun',
+            'name' => 'NCT DREAM Film Photo - Renjun v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-renjun-1.jpg'
         ),
         array(
-            'name' => 'Film - Renjun',
+            'name' => 'NCT DREAM Film Photo - Renjun v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-renjun-2.jpg'
@@ -148,19 +148,19 @@ $allitems = array(
     ),
     'jeno' => array(
         array(
-            'name' => 'A4 - Jeno',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Jeno',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-jeno.jpg'
         ),
         array(
-            'name' => 'Film - Jeno',
+            'name' => 'NCT DREAM Film Photo - Jeno v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-jeno-1.jpg'
         ),
         array(
-            'name' => 'Film - Jeno',
+            'name' => 'NCT DREAM Film Photo - Jeno v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-jeno-2.jpg'
@@ -168,19 +168,19 @@ $allitems = array(
     ),
     'haechan' => array(
         array(
-            'name' => 'A4 - Haechan',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Haechan',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-haechan.jpg'
         ),
         array(
-            'name' => 'Film - Haechan',
+            'name' => 'NCT DREAM Film Photo - Haechan v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-haechan-1.jpg'
         ),
         array(
-            'name' => 'Film - Haechan',
+            'name' => 'NCT DREAM Film Photo - Haechan v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-haechan-2.jpg'
@@ -188,19 +188,19 @@ $allitems = array(
     ),
     'jaemin' => array(
         array(
-            'name' => 'A4 - Jaemin',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Jaemin',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-jaemin.jpg'
         ),
         array(
-            'name' => 'Film - Jaemin',
+            'name' => 'NCT DREAM Film Photo - Jaemin v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-jaemin-1.jpg'
         ),
         array(
-            'name' => 'Film - Jaemin',
+            'name' => 'NCT DREAM Film Photo - Jaemin v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-jaemin-2.jpg'
@@ -208,19 +208,19 @@ $allitems = array(
     ),
     'chenle' => array(
         array(
-            'name' => 'A4 - Chenle',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Chenle',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-chenle.jpg'
         ),
         array(
-            'name' => 'Film - Chenle',
+            'name' => 'NCT DREAM Film Photo - Chenle v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-chenle-1.jpg'
         ),
         array(
-            'name' => 'Film - Chenle',
+            'name' => 'NCT DREAM Film Photo - Chenle v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-chenle-2.jpg'
@@ -228,19 +228,19 @@ $allitems = array(
     ),
     'jisung' => array(
         array(
-            'name' => 'A4 - Jisung',
+            'name' => 'NCT DREAM Glitch Mode A4 Poster - Jisung',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/a4-jisung.jpg'
         ),
         array(
-            'name' => 'Film - Jisung',
+            'name' => 'NCT DREAM Film Photo - Jisung v1',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-jisung-1.jpg'
         ),
         array(
-            'name' => 'Film - Jisung',
+            'name' => 'NCT DREAM Film Photo - Jisung v2',
             'description' => 'Description',
             'price' => '1.00',
             'src' => 'media/items/film-jisung-2.jpg'
@@ -262,11 +262,16 @@ if ($_POST['action'] == 'getMerchItems') {
                         <span> ' . $item['description'] . ' </span>
                     </span>
                 </span>
-                <div class="qtycont">
-                    <input type="button" class="dec" value="-">
-                    <input type="text" name="quantity" min="1" max="9" value="0">
-                    <input type="button" class="inc" value="+">
-                </div>
+                <form class="buyitem">
+                    <div class="qtycont">
+                        <input type="hidden" name="prod_service" value="' . $item['name'] . '">
+                        <input type="button" class="dec" value="-"
+                            onclick="this.parentNode.querySelector("input[type=number]").stepDown()">
+                        <input type="number" name="quantity" min="0" max="9" value="0">
+                        <input type="button" class="inc" value="+"
+                            onclick="this.parentNode.querySelector("input[type=number]"").stepUp()">
+                    </div>
+                </form>
             </div>';
         }
     }
@@ -282,11 +287,16 @@ if ($_POST['action'] == 'getMerchItems') {
                     <span> ' . $item['description'] . ' </span>
                 </span>
             </span>
-            <div class="qtycont">
-                <input type="button" class="dec" value="-">
-                <input type="text" name="quantity" min="1" max="9" value="0">
-                <input type="button" class="inc" value="+">
-            </div>
+            <form class="buyitem">
+                <div class="qtycont">
+                    <input type="hidden" name="prod_service" value="' . $item['name'] . '">
+                    <input type="button" class="dec" value="-"
+                        onclick="this.parentNode.querySelector(\'input[type=number]\').stepDown()">
+                    <input type="number" name="quantity" min="0" max="9" value="0">
+                    <input type="button" class="inc" value="+"
+                        onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()">
+                </div>
+            </form>
         </div>';
     }
 }

@@ -19,6 +19,46 @@ window.onload = function () {
         body.style.display = 'none';
         footer.style.display = 'none';
     }
+
+    // merches
+    var merches = document.getElementsByClassName('merch');
+    showMerches('all'); // uncomment once info has been updated
+    for (var i = 0; i < merches.length; i++) {
+        merches[i].addEventListener('click', function () {
+            var merchName = this.id;
+            // check if the merch is already active
+            if (this.classList.contains('merch-active')) {
+                this.classList.remove('merch-active');
+                merchName = 'all';
+            } else {
+                // remove the active class from all merchs
+                for (var j = 0; j < merches.length; j++) {
+                    merches[j].classList.remove('merch-active');
+                }
+
+                // add the active class to the clicked merch
+                this.classList.add('merch-active');
+            }
+
+            showMerches(merchName);
+        });
+    }
+}
+
+
+function showMerches(merchName) {
+    var items = document.getElementsByClassName('items')[0];
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            items.innerHTML = xhr.responseText;
+        }
+    }
+    xhr.open('POST', 'merch.php', true);
+    var formData = new FormData();
+    formData.append('action', 'getMerchItems');
+    formData.append('item', merchName);
+    xhr.send(formData);
 }
 
 function showCurrentOrders() {
@@ -49,15 +89,21 @@ function placeOrder(form) {
     }
     var formData = new FormData(form);
     formData.append('action', 'placeOrder');
-    xhr.open('POST', 'order.php', true);
-    xhr.send(formData);
+    if (formData.get('quantity') > 0) {
+        xhr.open('POST', 'order.php', true);
+        xhr.send(formData);
+    } else {
+        removeOrder(form);
+    }
 }
 
 function removeOrder(form) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            notify(("You removed a " + (formData.get('prod_service')) + " subscription from your cart."));
+            if (xhr.responseText != '0') {
+                notify(("You removed a " + (formData.get('prod_service')) + " subscription from your cart."));
+            }
 
             showCurrentOrders();
         }
@@ -117,6 +163,11 @@ function updateButtons() {
                 removeOrder(form);
             } else if (form.className == "checkout") {
                 e.preventDefault();
+
+                var itemForms = document.getElementsByClassName('buyitem');
+                for (var i = 0; i < itemForms.length; i++) {
+                    placeOrder(itemForms[i]);
+                }
                 showCheckout();
             }
         }

@@ -70,7 +70,7 @@ function showCurrentOrders() {
 
             updateCount();
             updateButtons();
-            showMerches(document.getElementsByClassName('merch-active')[0].id != null ? document.getElementsByClassName('merch-active')[0].id : 'all');
+            showMerches(document.getElementsByClassName('merch-active')[0] ? document.getElementsByClassName('merch-active')[0].id : 'all');
         }
     }
     xhr.open('POST', 'order.php', true);

@@ -21,6 +21,7 @@ if (isset($_POST['logout'])) {
         <title>Glitch Gameshop</title>
 
         <script src="myjs.js"></script>
+        <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
         <link rel="stylesheet" href="mycss.css?v=<?php echo time(); ?>">
     </head>
 
@@ -142,7 +143,8 @@ if (isset($_POST['logout'])) {
                     <div id="fpic"></div>
                     <div id="fdescrip">
                         <span> Featuring NCT DREAM </span>
-                        <span> NCT DREAM Glitch Mode items available for purchase. <br/> Click on member portraits to avail exclusive items. </span>
+                        <span> NCT DREAM Glitch Mode items available for purchase. <br /> Click on member portraits to
+                            avail exclusive items. </span>
                     </div>
                 </div>
                 <div class="merches">

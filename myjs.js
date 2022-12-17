@@ -1,4 +1,5 @@
 window.onload = function () {
+    PowerGlitch.glitch('.top');
     var login = document.getElementById('login');
     var top = document.getElementsByClassName('top')[0];
     var body = document.getElementsByClassName('body')[0];

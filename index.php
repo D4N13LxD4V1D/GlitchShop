@@ -86,7 +86,7 @@ if (isset($_POST['logout'])) {
                                 <li> Detail #1 </li>
                             </ul>
                         </div>
-                        <form class="buytype" action="index.php" method="post">
+                        <form class="buytype">
                             <input type="hidden" name="prod_service" value="Solo">
                             <input type="hidden" name="quantity" value="1">
                             <input type="submit" name="order" value="Order">
@@ -105,7 +105,7 @@ if (isset($_POST['logout'])) {
                                 <li> Detail #1 </li>
                             </ul>
                         </div>
-                        <form class="buytype" action="index.php" method="post">
+                        <form class="buytype">
                             <input type="hidden" name="prod_service" value="Duo">
                             <input type="hidden" name="quantity" value="1">
                             <input type="submit" name="order" value="Order">
@@ -124,7 +124,7 @@ if (isset($_POST['logout'])) {
                                 <li> Detail #1 </li>
                             </ul>
                         </div>
-                        <form class="buytype" action="index.php" method="post">
+                        <form class="buytype">
                             <input type="hidden" name="prod_service" value="Squad">
                             <input type="hidden" name="quantity" value="1">
                             <input type="submit" name="order" value="Order">
@@ -169,138 +169,7 @@ if (isset($_POST['logout'])) {
                         <img id="mempic" src="media/jisung.jpg" />
                     </div>
                 </div>
-                <div class="items">
-                    <div id="itemhead">
-                        Choose additional items to include in your package:
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/album-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Glitch Mode Album </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/photobook-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Glitch Mode Photobook </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/album-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Glitch Mode Album </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/a4-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Glitch Mode A4 Poster </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/film-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Film Photo v1 </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/film-2.jpg" />
-                            <span>
-                                <h2> NCT DREAM Film Photo v2 </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/poca-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Photocard </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/jacket-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM Jacket </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <span class="itemprev">
-                            <img src="media/items/lace-1.jpg" />
-                            <span>
-                                <h2> NCT DREAM ID Lace </h2>
-                                <span> Description </span>
-                            </span>
-                        </span>
-                        <div class="qtycont">
-                            <input type="button" class="dec" value="-">
-                            <input type="text" name="quantity" min="1" max="9" value="0">
-                            <input type="button" class="inc" value="+">
-                        </div>
-                    </div>
-                    <div id="itemfoot"></div>
-                </div>
+                <div class="items"></div>
             </div>
             <form class="checkout" action="checkout.php" method="post">
                 <input type="submit" id="proceed" name="order" value="Proceed to Checkout">

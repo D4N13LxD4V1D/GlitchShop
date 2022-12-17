@@ -28,7 +28,7 @@ if (isset($_POST['logout'])) {
         <div id="login">
             <img height="100px" src="media/GIitchMode.png" />
             <span> ENTER YOUR PLAYER NAME </span>
-            <form method="POST" action="index.php">
+            <form method="POST" action="/">
                 <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()">
                 <input type="submit" name="login" value="LOG-IN">
             </form>
@@ -63,10 +63,14 @@ if (isset($_POST['logout'])) {
                     <div id="slider-menu">
                         <div id="slider-head">Account Settings</div>
                         <div id="orders"></div>
-                        <form class="logoutform" action="index.php" method="post">
-                            <input id="checkout" type="submit" name="checkout" value="CHECK-OUT">';
-                            <input id="logout" type="submit" name="logout" value="LOG-OUT">
-                        </form>
+                        <div class="logoutform">
+                            <form class="checkout">
+                                <input id="checkout" type="submit" name="checkout" value="CHECK-OUT">
+                            </form>
+                            <form action="/" method="post">
+                                <input id="logout" type="submit" name="logout" value="LOG-OUT">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,7 +175,7 @@ if (isset($_POST['logout'])) {
                 </div>
                 <div class="items"></div>
             </div>
-            <form class="checkout" action="checkout.php" method="post">
+            <form class="checkout">
                 <input type="submit" id="proceed" name="order" value="Proceed to Checkout">
             </form>
         </div>

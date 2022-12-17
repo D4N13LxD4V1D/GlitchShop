@@ -176,6 +176,8 @@ function updateButtons() {
 }
 
 function showCheckout() {
+    if (document.getElementById('checkout-modal')) { return; }
+    
     checkoutmodal = document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
     checkoutmodal.id = "checkout-modal";
     checkoutmodal.onclick = function (e) {

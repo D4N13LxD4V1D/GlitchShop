@@ -52,10 +52,10 @@ if (isset($_COOKIE['user'])) {
         // check if user already has an order of Solo, Duo, or Squad
         if ($prod_service == "Solo" || $prod_service == "Duo" || $prod_service == "Squad") {
             try {
-                $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = 'Solo' OR PROD_SERVICE = 'Duo' OR PROD_SERVICE = 'Squad'");
+                $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE (USER = '$user' AND PROD_SERVICE = 'Solo') OR (USER = '$user' AND PROD_SERVICE = 'Duo') OR (USER = '$user' AND PROD_SERVICE = 'Squad')");
                 if ($result->num_rows > 0) {
                     // if user already has an order of Solo, Duo, or Squad, remove the old order
-                    $conn->query("DELETE FROM GlitchDB.ORDER WHERE USER = '$user' AND PROD_SERVICE = 'Solo' OR PROD_SERVICE = 'Duo' OR PROD_SERVICE = 'Squad'");
+                    $conn->query("DELETE FROM GlitchDB.ORDER WHERE (USER = '$user' AND PROD_SERVICE = 'Solo') OR (USER = '$user' AND PROD_SERVICE = 'Duo') OR (USER = '$user' AND PROD_SERVICE = 'Squad')");
                 } else {
                     throw new Exception("No order");
                 }

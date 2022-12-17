@@ -1,5 +1,12 @@
 <?php
 
+$conn = new mysqli("localhost", "root", "");
+$user = $_COOKIE['user'];
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 echo '<div id="itemhead">
     Choose additional items to include in your package:
 </div>';
@@ -254,6 +261,19 @@ if ($_POST['action'] == 'getMerchItems') {
         $items = $allitems[$_POST['item']];
 
         foreach ($items as $item) {
+            $quantity = 0;
+            $prod_service = $item['name'];
+            try {
+                $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user' AND PROD_SERVICE='$prod_service'");
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $quantity = $row['QUANTITY'];
+                    }
+                }
+            } catch (Exception $e) {
+                $quantity = 0;
+            }
+
             echo '<div class="item featured-item">
                 <span class="itemprev">
                     <img src="' . $item['src'] . '" />
@@ -267,7 +287,7 @@ if ($_POST['action'] == 'getMerchItems') {
                         <input type="hidden" name="prod_service" value="' . $item['name'] . '">
                         <input type="button" class="dec" value="-"
                             onclick="this.parentNode.querySelector(\'input[type=number]\').stepDown()">
-                        <input type="number" name="quantity" min="0" max="9" value="0">
+                        <input type="number" name="quantity" min="0" max="9" value="' . $quantity . '">
                         <input type="button" class="inc" value="+"
                             onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()">
                     </div>
@@ -279,6 +299,19 @@ if ($_POST['action'] == 'getMerchItems') {
     $items = $allitems['all'];
 
     foreach ($items as $item) {
+        $quantity = 0;
+        $prod_service = $item['name'];
+        try {
+            $result = $conn->query("SELECT * FROM GlitchDB.ORDER WHERE USER='$user' AND PROD_SERVICE='$prod_service'");
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $quantity = $row['QUANTITY'];
+                }
+            }
+        } catch (Exception $e) {
+            $quantity = 0;
+        }
+        
         echo '<div class="item">
             <span class="itemprev">
                 <img src="' . $item['src'] . '" />
@@ -292,7 +325,7 @@ if ($_POST['action'] == 'getMerchItems') {
                     <input type="hidden" name="prod_service" value="' . $item['name'] . '">
                     <input type="button" class="dec" value="-"
                         onclick="this.parentNode.querySelector(\'input[type=number]\').stepDown()">
-                    <input type="number" name="quantity" min="0" max="9" value="0">
+                    <input type="number" name="quantity" min="0" max="9" value="' . $quantity . '">
                     <input type="button" class="inc" value="+"
                         onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()">
                 </div>

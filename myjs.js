@@ -22,7 +22,7 @@ window.onload = function () {
 
     // merches
     var merches = document.getElementsByClassName('merch');
-    showMerches('all'); // uncomment once info has been updated
+    showMerches('all');
     for (var i = 0; i < merches.length; i++) {
         merches[i].addEventListener('click', function () {
             var merchName = this.id;
@@ -70,6 +70,7 @@ function showCurrentOrders() {
 
             updateCount();
             updateButtons();
+            showMerches(document.getElementsByClassName('merch-active')[0].id != null ? document.getElementsByClassName('merch-active')[0].id : 'all');
         }
     }
     xhr.open('POST', 'order.php', true);

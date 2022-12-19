@@ -23,12 +23,11 @@ if (isset($_POST['logout'])) {
         <script src="myjs.js"></script>
         <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
         <link rel="stylesheet" href="mycss.css?v=<?php echo time(); ?>">
-        <link rel="stylesheet" href="responsive.css?v=<?php echo time(); ?>">
     </head>
 
     <body>
         <div id="login">
-            <img height="100px" src="media/GIitchMode.png" />
+            <img class="glitch" height="100px" src="media/GIitchMode.png" />
             <span> ENTER YOUR PLAYER NAME </span>
             <form method="POST" action="index.php">
                 <input type="text" name="user" placeholder="NAME" oninput="this.value = this.value.toUpperCase()">
@@ -39,7 +38,7 @@ if (isset($_POST['logout'])) {
                 No copyright infringement is intended.
             </span>
         </div>
-        <div id="about">
+        <div id="about" onmouseleave="disappear()">
             <h1 class="glitch" id="hero"> About Glitch Mode </h1>
             <h2 id="subhero"> Glitch Mode is a combined gaming and music subscription service where users can access
                 exclusive tracks from different artists and play expert-curated games. Subscribers can enjoy ad-free
@@ -49,8 +48,11 @@ if (isset($_POST['logout'])) {
         </div>
         <div class="top">
             <video id="promo" height="100%" width="100%" autoplay muted loop>
-                <source src="media/GlitchMode.mp4" type="video/mp4">
+                <source src="media/videos/GlitchMode.mp4" type="video/mp4">
             </video>
+        </div>
+        <div id="music" onclick="expand(this)" onmouseleave="collapse(this)">
+            <img class="glitch" height="50px" src="media/GIitchMode.png" />
         </div>
         <div class="body">
             <div class="navbar">
@@ -61,7 +63,7 @@ if (isset($_POST['logout'])) {
                     <a onclick="scrollToElementByID('footer')"> CONTACT INFORMATION </a>
                 </div>
                 <div id="icons">
-                    <a href="/" id="cart">
+                    <a onclick="showCheckout()" id="cart">
                         <img height="30px" src="media/checkout.png" />
                         <div id="count"></div>
                     </a>
@@ -86,7 +88,8 @@ if (isset($_POST['logout'])) {
             </div>
             <div id="shop">
                 <h1 class="glitch" id="hero"> Get into the Glitch Mode! </h1>
-                <h2 id="subhero"> Subscribe to our combined gaming and music platform to get amazing benefits! </h2>
+                <h2 id="subhero"> Subscribe to our combined gaming and music platform to get amazing benefits!
+                </h2>
                 <div class="subtypes">
                     <div class="type" id="solo">
                         <div class="descrip">
@@ -152,7 +155,9 @@ if (isset($_POST['logout'])) {
                     <div id="fpic"></div>
                     <div class="glitch" id="fdescrip">
                         <span> Featuring NCT DREAM </span>
-                        <span> NCT DREAM Glitch Mode items available for purchase. <br /> Click on member portraits to
+                        <span> NCT DREAM Glitch Mode items available for purchase. <br /> Click on member
+                            portraits
+                            to
                             avail exclusive items. </span>
                     </div>
                 </div>
@@ -197,9 +202,9 @@ if (isset($_POST['logout'])) {
             <div id="links2">
                 <h2> NAVIGATE </h2>
                 <hr />
-                <a href="checkout.php"> ABOUT </a>
-                <a href="checkout.php"> PRODUCTS </a>
-                <a href="checkout.php"> CONTACT INFORMATION </a>
+                <a onclick="scrollToElementByID('about')"> ABOUT </a>
+                <a onclick="scrollToElementByID('feature')"> PRODUCTS </a>
+                <a onclick="scrollToElementByID('footer')"> CONTACT INFORMATION </a>
             </div>
             <div id="shopinfo">
                 <h1> Glitch Mode </h1>

@@ -92,7 +92,8 @@ input:focus {
     background: transparent;
 }
 
-#login, #about {
+#login,
+#about {
     height: 100vh;
     background-color: var(--neogreen);
     display: flex;
@@ -101,8 +102,13 @@ input:focus {
     justify-content: center;
 }
 
-#about>#subhero { margin-bottom: 30px !important; }
-#about>img { margin-bottom: 10vh; }
+#about>#subhero {
+    margin-bottom: 30px !important;
+}
+
+#about>img {
+    margin-bottom: 10vh;
+}
 
 #login>* {
     margin: 5px;
@@ -166,12 +172,33 @@ input:focus {
     z-index: 2;
 }
 
+#scrolled {
+    content: "";
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: var(--yellow);
+    z-index: 2;
+}
+
 .navbar::after {
     content: "";
     position: absolute;
+    display: inline-block;
     width: 100%;
     height: 5px;
     background-color: var(--magenta);
+    bottom: 0;
+    left: 0;
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 5px;
+    background-color: var(--yellow);
     bottom: 0;
     left: 0;
 }
@@ -281,13 +308,32 @@ input:focus {
     text-align: center;
 }
 
-#orders>table, #orders_check>table { width: 100%; }
-#receipt { margin: 30px 0 30px 0; }
-.receiptline { padding: 10px; text-align: center; }
+#orders>table,
+#orders_check>table {
+    width: 100%;
+}
 
-#orders>h2, #orders_check>h2{margin-bottom: 5px;}
-th { padding: 5px; }
-#delete:hover {background-color: lightgray;}
+#receipt {
+    margin: 30px 0 30px 0;
+}
+
+.receiptline {
+    padding: 10px;
+    text-align: center;
+}
+
+#orders>h2,
+#orders_check>h2 {
+    margin-bottom: 5px;
+}
+
+th {
+    padding: 5px;
+}
+
+#delete:hover {
+    background-color: lightgray;
+}
 
 #delete {
     background: none;
@@ -303,12 +349,14 @@ th { padding: 5px; }
     background-color: white;
 }
 
-.logout, .checkout {
+.logout,
+.checkout {
     width: 100%;
     margin: 5px;
 }
 
-#logout, #checkout {
+#logout,
+#checkout {
     background-color: var(--neogreen);
     font: 800 16px Roboto;
     color: black;
@@ -574,8 +622,8 @@ h2 {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .qtycont>input[type=number] {
@@ -654,18 +702,24 @@ input::-webkit-inner-spin-button {
 }
 
 @keyframes fade {
-    from {opacity :1;}
-    to {opacity :0;}
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
-  
+
 @keyframes pop {
     0% {
-      opacity: 0;
-      transform: scale(0.5, 0.5);
+        opacity: 0;
+        transform: scale(0.5, 0.5);
     }
+
     100% {
-      opacity: 1;
-      transform: scale(1, 1);
+        opacity: 1;
+        transform: scale(1, 1);
     }
 }
 
@@ -681,8 +735,13 @@ input::-webkit-inner-spin-button {
 }
 
 @keyframes fade-in {
-    from {opacity :0;}
-    to {opacity :1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 #checkout-modal>div {
@@ -707,17 +766,136 @@ input::-webkit-inner-spin-button {
 
 ::-webkit-scrollbar {
     width: 10px;
-  }
+}
 
 ::-webkit-scrollbar-track {
-    background: black; 
+    background: black;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--blue);
 }
-  
+
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--cyan);
-  }
+}
+
+.type {
+    width: 370px;
+    margin: auto;
+}
+
+@media screen and (max-width: 1900px) {
+    .subtypes {
+        grid-template-columns: repeat(3, 1fr);
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .subtypes {
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;
+        row-gap: 5%;
+    }
+
+    .type:last-child {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .body {
+        height: fit-content;
+    }
+
+    .subtypes {
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%;
+        row-gap: 5%;
+    }
+
+    .type:last-child {
+        grid-column: span 1;
+        margin-bottom: 10vh;
+    }
+}
+
+.merch {
+    min-width: 190px;
+}
+
+#music {
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    min-height: 100px;
+    min-width: 100px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--neogreen);
+    z-index: 100;
+    transition: width 0.25s, height 0.25s, background-color 0.25s;
+}
+
+#volume {
+    transition: all 0.25s;
+    width: 0;
+    z-index: 1000;
+}
+
+@media screen and (max-width: 1500px) {
+    .merches {
+        grid-auto-flow: unset;
+        grid-template-columns: repeat(12, 1fr);
+        width: 90%;
+        row-gap: 10px;
+    }
+
+    .merch {
+        max-width: 200px;
+        grid-column: span 4;
+        margin: auto;
+    }
+
+    .merch:nth-child(n+4) {
+        grid-column: span 3;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .merches {
+        grid-auto-flow: unset;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .merch {
+        max-width: 200px;
+        grid-column: span 1;
+    }
+
+    .merch:nth-child(n+4) {
+        grid-column: unset;
+    }
+
+    .merch:last-child {
+        grid-column: span 2;
+        margin: auto;
+    }
+
+    .qtycont {
+        min-width: 90px;
+    }
+
+    .qtycont>input[type=number] {
+        display: none;
+    }
+
+    #links>a:nth-child(n+2) {
+        display: none;
+    }
+}

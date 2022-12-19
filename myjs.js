@@ -1,7 +1,12 @@
+var music = new Audio("media/sound/Glitch Mode.mp3",);
+var vol = 0.2;
+
 window.onload = function () {
     PowerGlitch.glitch('.glitch');
+    PowerGlitch.glitch('.glitch-hover', { playMode: 'hover' });
     var login = document.getElementById('login');
     var about = document.getElementById('about');
+    var musicplayer = document.getElementById('music');
     var top = document.getElementsByClassName('top')[0];
     var body = document.getElementsByClassName('body')[0];
     var footer = document.getElementById('footer');
@@ -14,6 +19,17 @@ window.onload = function () {
         top.style.display = 'block';
         body.style.display = 'block';
         footer.style.display = 'grid';
+        musicplayer.style.display = 'fixed';
+        music.volume = vol;
+        try {
+            music.play()
+            musicplayer.onmouseenter = function () {
+                expand(musicplayer);
+            };
+        } catch (err) {
+            console.log(err);
+        }
+
         showCurrentOrders();
         autoscroll();
     } else {
@@ -21,6 +37,7 @@ window.onload = function () {
         top.style.display = 'none';
         body.style.display = 'none';
         footer.style.display = 'none';
+        musicplayer.style.display = 'none';
     }
 
     // merches
@@ -155,8 +172,32 @@ function notify(text) {
     msg = alertdiv.appendChild(document.createElement("p"));
     msg.innerHTML = text;
 
-    var sound = new Audio("media/notif.mp3");
+    var sound = new Audio("media/sound/notif.mp3");
     sound.play();
+}
+
+function expand(x) {
+    music.play();
+    x.innerHTML = "<input type='range' id='volume' name='vol' min='0' max='100' value='" + vol * 100 + "' />";
+    x.style.width = '200px';
+    document.getElementById('volume').style.width = '80%';
+
+    let volume = document.querySelector("#volume");
+
+    volume.addEventListener("input", function (e) {
+        music.volume = e.currentTarget.value / 100;
+        vol = e.currentTarget.value / 100;
+    });
+
+    x.onmouseenter = function () {
+        expand(x);
+    };
+}
+
+function collapse(x) {
+    document.getElementById('volume').style.width = '0';
+    x.innerHTML = '<img class="glitch" height="50px" src="media/GIitchMode.png" />';
+    x.style.width = '100px';
 }
 
 function updateButtons() {
@@ -242,4 +283,23 @@ function scrollToElementByID(id) {
         top: elementPosition - navHeight,
         behavior: "smooth"
     });
+}
+
+function disappear() {
+    var about = document.getElementById('about');
+    var top = document.getElementsByClassName('top')[0];
+    scrollToElementByID('shop');
+
+    setTimeout(function () {
+        about.style.display = 'none';
+        top.style.display = 'block';
+    }, 1000);
+}
+
+window.onscroll = function () {
+    var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (scroll / height) * 100;
+    // console.log(document.styleSheets[0].cssRules);
+    document.styleSheets[0].cssRules[28].style.width = scrolled + "%";
 }
